@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercícios Condicionais e Estruturas de Repetição</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 650px;
+      margin: auto;
+      padding: 20px;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    section {
+      background: white;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 5px #ccc;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0 4px;
+      font-weight: bold;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 6px 8px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      background: #3498db;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    .resultado {
+      margin-top: 10px;
+      background: #e1f5fe;
+      padding: 10px;
+      border-left: 4px solid #0288d1;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Exercícios Condicionais e Estruturas</h2>
+
+  <!-- Questão 1 -->
+  <section>
+    <h3>1) Número maior que 20 - metade ou igual</h3>
+    <label for="q1_num">Digite um número:</label>
+    <input type="number" id="q1_num" />
+    <button onclick="questao1()">Verificar</button>
+    <div id="res1" class="resultado"></div>
+  </section>
+
+  <!-- Questão 2 -->
+  <section>
+    <h3>2) Qual a capital do Brasil?</h3>
+    <label for="q2_resp">Digite a capital do Brasil:</label>
+    <input type="text" id="q2_resp" />
+    <button onclick="questao2()">Verificar resposta</button>
+    <div id="res2" class="resultado"></div>
+  </section>
+
+  <!-- Questão 3 -->
+  <section>
+    <h3>3) Número par ou ímpar</h3>
+    <label for="q3_num">Digite um número:</label>
+    <input type="number" id="q3_num" />
+    <button onclick="questao3()">Verificar</button>
+    <div id="res3" class="resultado"></div>
+  </section>
+
+  <!-- Questão 4 -->
+  <section>
+    <h3>4) Divisível por 4 e 5</h3>
+    <label for="q4_num">Digite um número inteiro:</label>
+    <input type="number" id="q4_num" />
+    <button onclick="questao4()">Verificar</button>
+    <div id="res4" class="resultado"></div>
+  </section>
+
+  <!-- Questão 5 -->
+  <section>
+    <h3>5) Média escolar e aprovação</h3>
+    <label for="q5_nota1">Nota 1:</label>
+    <input type="number" id="q5_nota1" step="any" min="0" max="10" />
+    <label for="q5_nota2">Nota 2:</label>
+    <input type="number" id="q5_nota2" step="any" min="0" max="10" />
+    <label for="q5_nota3">Nota 3:</label>
+    <input type="number" id="q5_nota3" step="any" min="0" max="10" />
+    <label for="q5_nota4">Nota 4:</label>
+    <input type="number" id="q5_nota4" step="any" min="0" max="10" />
+    <button onclick="questao5()">Calcular média</button>
+    <div id="res5" class="resultado"></div>
+  </section>
+
+  <!-- Questão 6 -->
+  <section>
+    <h3>6) Diferença entre maior e menor valor</h3>
+    <label for="q6_val1">Valor 1:</label>
+    <input type="number" id="q6_val1" />
+    <label for="q6_val2">Valor 2:</label>
+    <input type="number" id="q6_val2" />
+    <button onclick="questao6()">Calcular diferença</button>
+    <div id="res6" class="resultado"></div>
+  </section>
+
+  <!-- Questão 7 -->
+  <section>
+    <h3>7) Módulo de um número</h3>
+    <label for="q7_num">Digite um número inteiro:</label>
+    <input type="number" id="q7_num" />
+    <button onclick="questao7()">Mostrar módulo</button>
+    <div id="res7" class="resultado"></div>
+  </section>
+
+  <!-- Questão 8 -->
+  <section>
+    <h3>8) Número na faixa de 1 a 10?</h3>
+    <label for="q8_num">Digite um número inteiro:</label>
+    <input type="number" id="q8_num" />
+    <button onclick="questao8()">Verificar</button>
+    <div id="res8" class="resultado"></div>
+  </section>
+
+  <!-- Questão 9 -->
+  <section>
+    <h3>9) Número positivo, negativo ou nulo</h3>
+    <label for="q9_num">Digite um número:</label>
+    <input type="number" id="q9_num" />
+    <button onclick="questao9()">Verificar</button>
+    <div id="res9" class="resultado"></div>
+  </section>
+
+  <!-- Questão 10 -->
+  <section>
+    <h3>10) O segundo número é divisor do primeiro?</h3>
+    <label for="q10_num1">Primeiro número inteiro:</label>
+    <input type="number" id="q10_num1" />
+    <label for="q10_num2">Segundo número inteiro:</label>
+    <input type="number" id="q10_num2" />
+    <button onclick="questao10()">Verificar</button>
+    <div id="res10" class="resultado"></div>
+  </section>
+
+  <!-- Questão 11 -->
+  <section>
+    <h3>11) Algorismo das centenas</h3>
+    <label for="q11_num">Digite um número inteiro de 3 dígitos:</label>
+    <input type="number" id="q11_num" />
+    <button onclick="questao11()">Mostrar centena</button>
+    <div id="res11" class="resultado"></div>
+  </section>
+
+  <!-- Questão 12 -->
+  <section>
+    <h3>12) Maior e menor de 5 números</h3>
+    <label for="q12_n1">Número 1:</label>
+    <input type="number" id="q12_n1" />
+    <label for="q12_n2">Número 2:</label>
+    <input type="number" id="q12_n2" />
+    <label for="q12_n3">Número 3:</label>
+    <input type="number" id="q12_n3" />
+    <label for="q12_n4">Número 4:</label>
+    <input type="number" id="q12_n4" />
+    <label for="q12_n5">Número 5:</label>
+    <input type="number" id="q12_n5" />
+    <button onclick="questao12()">Verificar</button>
+    <div id="res12" class="resultado"></div>
+  </section>
+
+  <!-- Questão 13 -->
+  <section>
+    <h3>13) Ordenar 3 valores em ordem crescente</h3>
+    <label for="q13_a">Valor a:</label>
+    <input type="number" id="q13_a" />
+    <label for="q13_b">Valor b:</label>
+    <input type="number" id="q13_b" />
+    <label for="q13_c">Valor c:</label>
+    <input type="number" id="q13_c" />
+    <button onclick="questao13()">Ordenar</button>
+    <div id="res13" class="resultado"></div>
+  </section>
+
+  <script>
+    // 1
+    function questao1() {
+      let num = Number(document.getElementById("q1_num").value);
+      if (isNaN(num)) {
+        document.getElementById("res1").innerText = "Digite um número válido.";
+        return;
+      }
+      let resultado = num > 20 ? num / 2 : num;
+      document.getElementById("res1").innerText = `Resultado: ${resultado}`;
+    }
+
+    // 2
+    function questao2() {
+      let resposta = document.getElementById("q2_resp").value.trim().toLowerCase();
+      let certa = "brasilia";
+      if (!resposta) {
+        document.getElementById("res2").innerText = "Digite alguma resposta.";
+        return;
+      }
+      let msg = resposta === certa ? "Resposta correta!" : "Resposta errada!";
+      document.getElementById("res2").innerText = msg;
+    }
+
+    // 3
+    function questao3() {
+      let num = Number(document.getElementById("q3_num").value);
+      if (isNaN(num)) {
+        document.getElementById("res3").innerText = "Digite um número válido.";
+        return;
+      }
+      let msg = num % 2 === 0 ? "Número par." : "Número ímpar.";
+      document.getElementById("res3").innerText = msg;
+    }
+
+    // 4
+    function questao4() {
+      let num = Number(document.getElementById("q4_num").value);
+      if (!Number.isInteger(num)) {
+        document.getElementById("res4").innerText = "Digite um número inteiro válido.";
+        return;
+      }
+      if (num % 4 === 0 && num % 5 === 0) {
+        document.getElementById("res4").innerText = `Valor: ${num}`;
+      } else {
+        document.getElementById("res4").innerText = "Valor não é divisível por 4 e 5";
+      }
+    }
+
+    // 5
+    function questao5() {
+      let n1 = Number(document.getElementById("q5_nota1").value);
+      let n2 = Number(document.getElementById("q5_nota2").value);
+      let n3 = Number(document.getElementById("q5_nota3").value);
+      let n4 = Number(document.getElementById("q5_nota4").value);
+
+      let inputs = [n1, n2, n3, n4];
+      if (inputs.some(n => isNaN(n) || n < 0 || n > 10)) {
+        document.getElementById("res5").innerText = "Digite notas válidas entre 0 e 10.";
+        return;
+      }
+
+      let media = (n1 + n2 + n3 + n4) / 4;
+      let aprovado = media >= 5;
+      let msg = aprovado
+        ? `Aluno aprovado! Média: ${media.toFixed(2)}`
+        : `Aluno reprovado. Média: ${media.toFixed(2)}`;
+
+      document.getElementById("res5").innerText = msg;
+    }
+
+    // 6
+    function questao6() {
+      let v1 = Number(document.getElementById("q6_val1").value);
+      let v2 = Number(document.getElementById("q6_val2").value);
+
+      if (!Number.isInteger(v1) || !Number.isInteger(v2)) {
+        document.getElementById("res6").innerText = "Digite valores inteiros válidos.";
+        return;
+      }
+      let dif = Math.abs(v1 - v2);
+      document.getElementById("res6").innerText = `Diferença: ${dif}`;
+    }
+
+    // 7
+    function questao7() {
+      let val = Number(document.getElementById("q7_num").value);
+      if (!Number.isInteger(val)) {
+        document.getElementById("res7").innerText = "Digite um valor inteiro válido.";
+        return;
+      }
+      let modulo = Math.abs(val);
+      document.getElementById("res7").innerText = `Módulo: ${modulo}`;
+    }
+
+    // 8
+    function questao8() {
+      let num = Number(document.getElementById("q8_num").value);
+      if (!Number.isInteger(num)) {
+        document.getElementById("res8").innerText = "Digite um número inteiro válido.";
+        return;
+      }
+      let dentroFaixa = num >= 1 && num <= 10;
+      document.getElementById("res8").innerText = dentroFaixa
+        ? `${num} está na faixa de 1 a 10.`
+        : `${num} NÃO está na faixa de 1 a 10.`;
+    }
+
+    // 9
+    function questao9() {
+      let num = Number(document.getElementById("q9_num").value);
+      if (isNaN(num)) {
+        document.getElementById("res9").innerText = "Digite um número válido.";
+        return;
+      }
+      let msg = num > 0 ? "Número positivo." : num < 0 ? "Número negativo." : "Número nulo.";
+      document.getElementById("res9").innerText = msg;
+    }
+
+    // 10
+    function questao10() {
+      let n1 = Number(document.getElementById("q10_num1").value);
+      let n2 = Number(document.getElementById("q10_num2").value);
+
+      if (!Number.isInteger(n1) || !Number.isInteger(n2) || n2 === 0) {
+        document.getElementById("res10").innerText = "Digite números inteiros válidos e o divisor diferente de zero.";
+        return;
+      }
+      let divisivel = n1 % n2 === 0;
+      let msg = divisivel
+        ? `${n2} é divisor de ${n1}.`
+        : `${n2} NÃO é divisor de ${n1}.`;
+      document.getElementById("res10").innerText = msg;
+    }
+
+    // 11
+    function questao11() {
+      let num = Number(document.getElementById("q11_num").value);
+      if (!Number.isInteger(num) || num < 100 || num > 999) {
+        document.getElementById("res11").innerText = "Digite um número inteiro de 3 dígitos (100 a 999).";
+        return;
+      }
+      // Centena é o dígito mais à esquerda: dividir por 100 e pegar o inteiro
+      let centena = Math.floor(num / 100);
+      document.getElementById("res11").innerText = `Algarismo das centenas: ${centena}`;
+    }
+
+    // 12
+    function questao12() {
+      let nums = [
+        Number(document.getElementById("q12_n1").value),
+        Number(document.getElementById("q12_n2").value),
+        Number(document.getElementById("q12_n3").value),
+        Number(document.getElementById("q12_n4").value),
+        Number(document.getElementById("q12_n5").value),
+      ];
+
+      if (nums.some(n => !Number.isInteger(n))) {
+        document.getElementById("res12").innerText = "Digite 5 números inteiros válidos.";
+        return;
+      }
+
+      let maior = Math.max(...nums);
+      let menor = Math.min(...nums);
+      document.getElementById("res12").innerText = `Maior número: ${maior}\nMenor número: ${menor}`;
+    }
+
+    // 13
+    function questao13() {
+      let a = Number(document.getElementById("q13_a").value);
+      let b = Number(document.getElementById("q13_b").value);
+      let c = Number(document.getElementById("q13_c").value);
+
+      if ([a,b,c].some(n => isNaN(n))) {
+        document.getElementById("res13").innerText = "Digite três valores numéricos válidos.";
+        return;
+      }
+
+      let arr = [a, b, c];
+      arr.sort((x, y) => x - y);
+      document.getElementById("res13").innerText = `Ordem crescente: ${arr.join(", ")}`;
+    }
+  </script>
+</body>
+
+</html>

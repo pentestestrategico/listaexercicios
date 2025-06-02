@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Exercícios 1</title>
+  <style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+
+  h1, h2 {
+    color: #2c3e50;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  input[type="number"],
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  button {
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #2980b9;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #resultado,
+  #resultado2,
+  #resultado2-1,
+  #resultado3,
+  #resultado4,
+  #resultado5,
+  #resultado6,
+  #resultado7,
+  #resultado8,
+  #resultado9 {
+    background: #ecf0f1;
+    padding: 10px;
+    margin-top: 10px;
+    border-left: 4px solid #3498db;
+    border-radius: 5px;
+    white-space: pre-wrap;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  @media (max-width: 600px) {
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <h2>Lista 1 de Exercícios</h2>
+
+  <!-- EXERCÍCIO 1 -->
+  <!--Desenvolver um programa que pergunte ao usuário o seu nome completo e seu sexo.
+    Em seguida, o programa deve apresentar os dados anteriormente informados.-->
+  <h1>Exercício 1:</h1>
+  <p>Digite seu nome completo:</p>
+  <input type="text" id="nome" placeholder="Seu nome aqui" />
+
+  <p>Escolha seu sexo:</p>
+<div class="radio-group">
+  <label><input type="radio" id="masculino" name="sexo" value="Masculino" /> Masculino</label>
+  <label><input type="radio" id="feminino" name="sexo" value="Feminino" checked /> Feminino</label>
+</div>
+
+  <br />
+  <button onclick="registrarDados()">Salvar</button>
+  <p id="resultado"></p>
+
+  <!-- EXERCÍCIO 2 -->
+  <!--Elaborar um programa que pergunte quatro valores inteiros e apresente 2 resultados:
+a.Resultados de suas adições
+b.Resultado de suas multiplicações
+c.Fazer um programa que pergunte um valor em Dólares-->
+
+  <h1>Exercício 2:</h1>
+  <p>Digite 4 valores inteiros:</p>
+  <input type="number" id="num1" placeholder="Digite 1° Número" />
+  <input type="number" id="num2" placeholder="Digite 2° Número" />
+  <input type="number" id="num3" placeholder="Digite 3° Número" />
+  <input type="number" id="num4" placeholder="Digite 4° Número" />
+  <br><br>
+  <button onclick="calcular()">Calcular</button>
+  <p id="resultado2"></p>
+
+  <!-- EXERCÍCIO 2.1 -->
+  <h1>Exercício 2.1:</h1>
+  <p>Digite o valor em dólar para converter para real:</p>
+  <input type="number" id="dolar" placeholder="Digite valor" />
+  <br><br>
+  <button onclick="calculardolar()">Converter</button>
+  <p id="resultado2-1"></p>
+
+  <!-- EXERCÍCIO 3 -->
+  <!--Fazer um programa que pergunte um número inteiro e
+   apresente o seu antecessor e seu sucessor.-->
+  <h1>Exercício 3:</h1>
+  <p>Digite um número inteiro:</p>
+  <input type="number" id="numerointeiro" placeholder="Digite valor" />
+  <br><br>
+  <button onclick="calcularInteiro()">Calcular</button>
+  <p id="resultado3"></p>
+
+  <!-- EXERCÍCIO 4 -->
+  <!--Fazer um programa que pergunte o salário de um funcionário
+    e apresente este salário com um aumento de 15%.-->
+  <h1>Exercício 4:</h1>
+  <p>Digite seu salário:</p>
+  <input type="number" id="salario" placeholder="Digite salário" />
+  <br><br>
+  <button onclick="calcularSalario()">Calcular</button>
+  <p id="resultado4"></p>
+
+  <!-- EXERCÍCIO 5 -->
+  <!--Fazer um programa que pergunte uma temperatura ao usuário, 
+    em graus Fahrenheit, e apresente esta temperatura convertida em graus Celsius.
+     A fórmula da conversão é c = (f – 32) x 5 / 9 , 
+     onde c é a temperatura em graus Celsius e f em Fahrenheit.-->
+  <h1>Exercício 5:</h1>
+  <p>Digite a temperatura em Fahrenheit:</p>
+  <input type="number" id="temperatura" placeholder="Digite valor" />
+  <br><br>
+  <button onclick="calculartemperatura()">Calcular</button>
+  <p id="resultado5"></p>
+
+  <!-- EXERCÍCIO 6 -->
+  <!--Fazer um algoritmo que pergunte 3 números e apresente a média aritmética entre estes 3 números.-->
+  <h1>Exercício 6:</h1>
+  <p>Digite 3 números:</p>
+  <input type="number" id="media1" placeholder="Digite o 1º número" />
+  <input type="number" id="media2" placeholder="Digite o 2º número" />
+  <input type="number" id="media3" placeholder="Digite o 3º número" />
+  <br><br>
+  <button onclick="calcularmedia()">Calcular</button>
+  <p id="resultado6"></p>
+
+  <!-- EXERCICIO 7 -->
+  <!--Fazer um programa que calcule e apresente a quantidade de litros que um automóvel gastará
+  em uma viagem. O programa deve coletar as seguintes informações: Distância a percorrer na viagem,
+   em quilômetros; qual é o valor do consumo médio do automóvel, em quilômetros por litro.-->
+  <h1>Exercício 7:</h1>
+  <p>Digite a distância a percorrer (em km):</p>
+  <input type="number" id="distancia" placeholder="Distância em km" />
+
+  <p>Digite o consumo médio do carro (km por litro):</p>
+  <input type="number" id="consumo" placeholder="Consumo em km/l" />
+  <br><br>
+
+  <button onclick="calcularLitros()">Calcular</button>
+  <p id="resultado7"></p>
+
+  <!-- EXERCICIO 8 -->
+  <!--Fazer um algoritmo que pergunte 1 número e apresente:
+a.O próprio número
+b.O quadrado deste número
+c.A raiz quadrada deste número-->
+  <h1> Exercicio 8:</h1>
+  <p>Digite um numero:</p>
+  <input type="number" id="Num" placeholder="Digite N°"><br><br>
+  <button onclick="calcularNumero()">Calcular</button>
+  <p id="resultado8"></p>
+
+  <!-- EXERCICIO 9 -->
+  <!--Fazer um algoritmo que efetue o cálculo do valor de uma prestação em atraso,
+  utilizando a fórmula prestação = valor + (valor x (taxa : 100) x tempo em dias).-->
+  <h1> Exercicio 9:</h1>
+  <label>Valor da prestação: R$ <input type="number" id="valor" step="0.01"></label><br>
+  <label>Taxa de juros (% ao dia): <input type="number" id="taxa" step="0.01"></label><br>
+  <label>Tempo de atraso (dias): <input type="number" id="tempo"></label><br>
+  <button onclick="calcularPrestacao()">Calcular Prestação</button>
+
+  <pre id="resultado9"></pre>
+
+
+  <!-- FUNÇÃO DO EXERCICIO 1 -->
+  <script>
+    function registrarDados() {
+      let nome = document.getElementById("nome").value;
+      let sexo = document.querySelector('input[name="sexo"]:checked').value;
+      let mensagem = `Nome registrado: ${nome}<br>Sexo: ${sexo}`;
+      document.getElementById("resultado").innerHTML = mensagem;
+    }
+
+    //<!-- FUNÇÃO DO EXERCICIO 2 -->
+
+
+    function calcular() {
+      let num1 = Number(document.getElementById("num1").value);
+      let num2 = Number(document.getElementById("num2").value);
+      let num3 = Number(document.getElementById("num3").value);
+      let num4 = Number(document.getElementById("num4").value);
+
+      let soma = num1 + num2 + num3 + num4;
+      let multiplica = num1 * num2 * num3 * num4;
+
+      document.getElementById("resultado2").innerText =
+        `Soma: ${soma} | Multiplicação: ${multiplica}`;
+    }
+    //<!-- FUNÇÃO DO EXERCICIO 2.1 -->
+
+    function calculardolar() {
+      let num1 = Number(document.getElementById("dolar").value);
+      let convertido = num1 * 5.7;
+      document.getElementById("resultado2-1").innerText =
+        `Valor convertido para Real: R$ ${convertido.toFixed(2)}`;
+    }
+    //<!-- FUNÇÃO DO EXERCICIO 3 -->
+    function calcularInteiro() {
+      let num = Number(document.getElementById("numerointeiro").value);
+      document.getElementById("resultado3").innerText =
+        `O antecessor é: ${num - 1} | O sucessor é: ${num + 1}`;
+    }
+
+    //<!-- FUNÇÃO DO EXERCICIO 4 -->
+    function calcularSalario() {
+      let num = Number(document.getElementById("salario").value);
+      document.getElementById("resultado4").innerText =
+        `Seu salario com aumento de 15% é: ${(num * 0.15) + num} `;
+    }
+
+    //<!-- FUNÇÃO DO EXERCICIO 5 -->
+    function calculartemperatura() {
+      let num = Number(document.getElementById("temperatura").value);
+      let calctemp = (num - 32) * (5 / 9);
+
+      document.getElementById("resultado5").innerText =
+        `A temperatura convertida para Celsius é: ${calctemp.toFixed(2)} °C`;
+    }
+
+    //<!-- FUNÇÃO DO EXERCICIO 6 -->
+    function calcularmedia() {
+      let num1 = Number(document.getElementById("media1").value);
+      let num2 = Number(document.getElementById("media2").value);
+      let num3 = Number(document.getElementById("media3").value);
+
+      let media = (num1 + num2 + num3) / 3;
+
+      document.getElementById("resultado6").innerText =
+        `A média dos valores é: ${media.toFixed(2)}`;
+    }
+
+    //<!-- FUNÇÃO DO EXERCICIO 7 -->
+    function calcularLitros() {
+      let distancia = Number(document.getElementById("distancia").value);
+      let consumo = Number(document.getElementById("consumo").value);
+
+      if (distancia > 0 && consumo > 0) {
+        let litros = distancia / consumo;
+        document.getElementById("resultado7").innerText =
+          `Você precisará de aproximadamente ${litros.toFixed(2)} litros de combustível.`;
+      } else {
+        document.getElementById("resultado7").innerText =
+          "Por favor, preencha os dois campos com valores válidos.";
+      }
+    }
+
+    //<!-- FUNÇÃO DO EXERCICIO 8 -->
+
+    function calcularNumero() {
+      let numero = Number(document.getElementById("Num").value);
+      let quadrado = numero * numero;
+      let raiz = Math.sqrt(numero);
+
+      document.getElementById("resultado8").innerText =
+        `Você digitou o N° ${numero}\n O quadrado desse N° é: ${quadrado}\n A raiz quadrada desse N° é: ${raiz} .`;
+    }
+    //<!-- FUNÇÃO DO EXERCICIO 9 -->
+    function calcularPrestacao() {
+      let valor = Number(document.getElementById("valor").value);
+      let taxa = Number(document.getElementById("taxa").value);
+      let tempo = Number(document.getElementById("tempo").value);
+
+      let prestacao = valor + (valor * (taxa / 100) * tempo);
+
+      document.getElementById("resultado9").innerText =
+        `Valor original: R$ ${valor.toFixed(2)}\n` +
+        `Taxa de juros: ${taxa}% ao dia\n` +
+        `Dias de atraso: ${tempo} dias\n` +
+        `Valor da prestação em atraso: R$ ${prestacao.toFixed(2)}`;
+    }
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

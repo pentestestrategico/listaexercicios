@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Exercícios 2</title>
+
+    <style>
+        /* Estilo base do corpo */
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Títulos principais e secundários */
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Campos de entrada */
+        input[type="number"],
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        /* Rótulos */
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Botões */
+        button {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        /* Estilo das caixas de resultado */
+        #resultado,
+        #resultado1,
+        #resultado2,
+        #resultado3,
+        #resultado4,
+        #resultado5,
+        #resultado6,
+        #resultado8,
+        #resultado9,
+        #resultado10 {
+            background: #ecf0f1;
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            /* preserva quebras de linha */
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+
+            input[type="number"],
+            input[type="text"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Lista 1 de Exercícios</h2>
+
+    <!-- EXERCÍCIO 1: Calcular valor da conta com 10% de acréscimo -->
+    <h1>Exercício 1:</h1>
+    <p>Digite o valor da conta:</p>
+    <input type="number" id="valorconta" placeholder="Digite o valor">
+    <button onclick="registrarDados()">Calcular</button>
+    <p id="resultado1"></p>
+
+    <!-- EXERCÍCIO 2: Converter horas e minutos em minutos totais -->
+    <h1>Exercício 2:</h1>
+    <p>Digite a Hora:</p>
+    <input type="number" id="valorhora" placeholder="Digite a hora">
+    <input type="number" id="valorminuto" placeholder="Digite os minutos">
+    <button onclick="calcularMinutos()">Calcular</button>
+    <p id="resultado2"></p>
+
+    <!-- EXERCÍCIO 3: Converter peso e altura -->
+    <h1>Exercício 3:</h1>
+    <p>Qual seu peso em Kg:</p>
+    <input type="number" id="kilos" placeholder="Digite valor" step="0.01" />
+    <p>Qual sua altura em metros:</p>
+    <input type="number" id="altura" placeholder="Digite valor" step="0.01" />
+    <button onclick="calcularAltura()">Calcular</button>
+    <p id="resultado3"></p>
+
+    <!-- EXERCÍCIO 4: Calcular IMC -->
+    <h1>Exercício 4:</h1>
+    <p>Qual seu peso em Kg:</p>
+    <input type="number" id="peso2" placeholder="Digite valor" step="0.01" />
+    <p>Qual sua altura em metros:</p>
+    <input type="number" id="altura2" placeholder="Digite valor" step="0.01" />
+    <button onclick="calcularIMC()">Calcular</button>
+    <p id="resultado4"></p>
+
+    <!-- EXERCÍCIO 5: Operações matemáticas básicas -->
+    <h1>Exercício 5:</h1>
+    <p>Digite 2 números:</p>
+    <input type="number" id="numero1" placeholder="Digite valor" />
+    <input type="number" id="numero2" placeholder="Digite valor" />
+    <button onclick="calcularMatematica()">Calcular</button>
+    <p id="resultado5"></p>
+
+    <!-- EXERCÍCIO 6: Cálculo de comissão do vendedor -->
+    <h1>Exercício 6:</h1>
+    <p>Digite o nome do vendedor:</p>
+    <input type="text" id="nomevendedor" placeholder="Digite o nome">
+    <p>Digite o salário:</p>
+    <input type="number" id="salariovendedor" placeholder="Digite o salário" />
+    <p>Digite o valor das vendas no mês:</p>
+    <input type="number" id="valorvendasmes" placeholder="Digite o valor das vendas" />
+    <button onclick="calcularcomissao()">Calcular</button>
+    <p id="resultado6"></p>
+
+    <!-- EXERCÍCIO 7: Prestação sem juros -->
+    <h1>Exercício 7:</h1>
+    <label for="valorCompra">Valor da compra (R$):</label>
+    <input type="number" id="valorCompra" step="0.01">
+    <label for="numPrestacoes">Número de prestações (máx. 10):</label>
+    <input type="number" id="numPrestacoes" min="1" max="10">
+    <button onclick="calcularPrestacoes()">Calcular</button>
+    <p id="resultado"></p>
+
+    <!-- EXERCÍCIO 8: Preço de custo -->
+    <h1>Exercício 8:</h1>
+    <label>Preço de Custo (R$):</label>
+    <input type="number" id="precoCusto" placeholder="Digite o preço de custo" step="0.01" min="0" />
+    <label>Percentual de Acréscimo (%):</label>
+    <input type="number" id="percentualAcrescimo" placeholder="Digite o percentual" step="0.01" min="0" />
+    <button onclick="exercicio8()">Calcular Valor de Venda</button>
+    <p id="resultado8"></p>
+
+    <!-- EXERCÍCIO 9: Converter idade em anos, meses e dias para total de dias -->
+    <h1>Exercício 9:</h1>
+    <label>Anos:</label>
+    <input type="number" id="anos" placeholder="Digite anos" min="0" />
+    <label>Meses:</label>
+    <input type="number" id="meses" placeholder="Digite meses" min="0" />
+    <label>Dias:</label>
+    <input type="number" id="dias" placeholder="Digite dias" min="0" />
+    <button onclick="exercicio9()">Calcular Idade em Dias</button>
+    <p id="resultado9"></p>
+
+    <!-- EXERCÍCIO 10: Calcular percentuais de votos -->
+    <h1>Exercício 10:</h1>
+    <label>Total de Eleitores:</label>
+    <input type="number" id="totalEleitores" placeholder="Digite total de eleitores" min="1" />
+    <label>Votos Brancos:</label>
+    <input type="number" id="votosBrancos" placeholder="Digite votos brancos" min="0" />
+    <label>Votos Nulos:</label>
+    <input type="number" id="votosNulos" placeholder="Digite votos nulos" min="0" />
+    <label>Votos Válidos:</label>
+    <input type="number" id="votosValidos" placeholder="Digite votos válidos" min="0" />
+    <button onclick="exercicio10()">Calcular Percentuais</button>
+    <p id="resultado10"></p>
+
+    <script>
+        // Exercício 1
+        function registrarDados() {
+            let calculo = Number(document.getElementById("valorconta").value);
+            let acrescimo = calculo * 0.10;
+            let total = calculo + acrescimo;
+            document.getElementById("resultado1").innerText = `O valor acrescido de 10% é: R$ ${total.toFixed(2)}`;
+        }
+
+        // Exercício 2
+        function calcularMinutos() {
+            let hora = Number(document.getElementById("valorhora").value);
+            let minutos = Number(document.getElementById("valorminuto").value);
+            let total = (hora * 60) + minutos;
+            document.getElementById("resultado2").innerText = `Total em minutos: ${total}`;
+        }
+
+        // Exercício 3
+        function calcularAltura() {
+            let kilograma = Number(document.getElementById("kilos").value);
+            let altura = Number(document.getElementById("altura").value);
+            let grama = kilograma * 1000;
+            let centimetros = altura * 100;
+            document.getElementById("resultado3").innerText = `Peso: ${grama}g | Altura: ${centimetros}cm`;
+        }
+
+        // Exercício 4
+        function calcularIMC() {
+            let peso = Number(document.getElementById("peso2").value);
+            let altura = Number(document.getElementById("altura2").value);
+            let imc = peso / (altura * altura);
+            document.getElementById("resultado4").innerText = `Seu IMC é: ${imc.toFixed(2)}`;
+        }
+
+        // Exercício 5
+        function calcularMatematica() {
+            let n1 = Number(document.getElementById("numero1").value);
+            let n2 = Number(document.getElementById("numero2").value);
+            let resultado = `
+Soma: ${n1 + n2}
+Subtração 1-2: ${n1 - n2}
+Subtração 2-1: ${n2 - n1}
+Multiplicação: ${n1 * n2}
+Divisão: ${n1 / n2}
+Resto: ${n1 % n2}`;
+            document.getElementById("resultado5").innerText = resultado;
+        }
+
+        // Exercício 6
+        function calcularcomissao() {
+            let nome = document.getElementById("nomevendedor").value;
+            let salario = Number(document.getElementById("salariovendedor").value);
+            let vendas = Number(document.getElementById("valorvendasmes").value);
+            let comissao = vendas * 0.15;
+            let total = salario + comissao;
+            document.getElementById("resultado6").innerHTML = `
+Funcionário: ${nome}<br>
+Salário base: R$ ${salario.toFixed(2)}<br>
+Comissão: R$ ${comissao.toFixed(2)}<br>
+Salário total: R$ ${total.toFixed(2)}`;
+        }
+
+        // Exercício 7
+        function calcularPrestacoes() {
+            let valor = Number(document.getElementById("valorCompra").value);
+            let parcelas = Number(document.getElementById("numPrestacoes").value);
+            if (valor <= 0 || parcelas <= 0 || parcelas > 10) {
+                document.getElementById("resultado").innerText = "Informe valores válidos.";
+                return;
+            }
+            let valorParcela = valor / parcelas;
+            document.getElementById("resultado").innerText = `Você pagará ${parcelas} parcelas de R$ ${valorParcela.toFixed(2)} sem juros.`;
+        }
+
+        // Função exercício 8 - cálculo valor de venda
+        function calcularValorVenda(precoCusto, percentualAcrescimo) {
+            return precoCusto + precoCusto * (percentualAcrescimo / 100);
+        }
+
+        // Exercicio 8 - capturar input e mostrar resultado
+        function exercicio8() {
+            let precoCusto = Number(document.getElementById("precoCusto").value);
+            let percentualAcrescimo = Number(document.getElementById("percentualAcrescimo").value);
+            if (precoCusto <= 0 || percentualAcrescimo < 0) {
+                document.getElementById("resultado8").innerText = "Digite valores válidos.";
+                return;
+            }
+            let valorVenda = calcularValorVenda(precoCusto, percentualAcrescimo);
+            document.getElementById("resultado8").innerText = `Valor de venda: R$ ${valorVenda.toFixed(2)}`;
+        }
+
+        // Função exercício 9 - converter idade para dias
+        function idadeEmDias(anos, meses, dias) {
+            return anos * 365 + meses * 30 + dias;
+        }
+
+        // Exercício 9 - capturar inputs e mostrar resultado
+        function exercicio9() {
+            let anos = Number(document.getElementById("anos").value);
+            let meses = Number(document.getElementById("meses").value);
+            let dias = Number(document.getElementById("dias").value);
+            if (anos < 0 || meses < 0 || dias < 0) {
+                document.getElementById("resultado9").innerText = "Digite valores válidos.";
+                return;
+            }
+            let totalDias = idadeEmDias(anos, meses, dias);
+            document.getElementById("resultado9").innerText = `Idade em dias: ${totalDias}`;
+        }
+
+        // Função exercício 10 - calcular percentuais de votos
+        function calcularPercentuaisEleitores(totalEleitores, votosBrancos, votosNulos, votosValidos) {
+            if (votosBrancos + votosNulos + votosValidos > totalEleitores) {
+                return "Erro: soma dos votos maior que total de eleitores.";
+            }
+            let percentualBrancos = ((votosBrancos / totalEleitores) * 100).toFixed(2) + "%";
+            let percentualNulos = ((votosNulos / totalEleitores) * 100).toFixed(2) + "%";
+            let percentualValidos = ((votosValidos / totalEleitores) * 100).toFixed(2) + "%";
+
+            return {
+                percentualBrancos,
+                percentualNulos,
+                percentualValidos
+            };
+        }
+
+        // Exercício 10 - capturar inputs e mostrar resultado
+        function exercicio10() {
+            let totalEleitores = Number(document.getElementById("totalEleitores").value);
+            let votosBrancos = Number(document.getElementById("votosBrancos").value);
+            let votosNulos = Number(document.getElementById("votosNulos").value);
+            let votosValidos = Number(document.getElementById("votosValidos").value);
+
+            if (
+                totalEleitores <= 0 ||
+                votosBrancos < 0 ||
+                votosNulos < 0 ||
+                votosValidos < 0 ||
+                votosBrancos + votosNulos + votosValidos > totalEleitores
+            ) {
+                document.getElementById("resultado10").innerText = "Digite valores válidos e coerentes.";
+                return;
+            }
+
+            let percentuais = calcularPercentuaisEleitores(totalEleitores, votosBrancos, votosNulos, votosValidos);
+
+            if (typeof percentuais === "string") {
+                document.getElementById("resultado10").innerText = percentuais;
+            } else {
+                document.getElementById("resultado10").innerText =
+                    `Percentual de votos brancos: ${percentuais.percentualBrancos}\n` +
+                    `Percentual de votos nulos: ${percentuais.percentualNulos}\n` +
+                    `Percentual de votos válidos: ${percentuais.percentualValidos}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
