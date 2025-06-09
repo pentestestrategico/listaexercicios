@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.21);
+  background-color: white;
+}
+
+nav a {
+  color: black;
+  padding: 20px 20px;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul a:hover {
+  background-color: rgb(187, 0, 255);
+  color: white;
+}
+
+body {
+  background-image: url("./imagens/v748-toon-103.jpg");
+  background-attachment: fixed;
+}
+
+/* INICIO MAIN */
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+#intro {
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#apresentacao p:nth-child(1) {
+  font-size: 30px;
+}
+
+#apresentacao p:nth-child(2) {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+#redes-sociais {
+  display: flex;
+  gap: 20px;
+}
+
+#redes-sociais img {
+  width: 45px;
+}
+
+#apresentacao p:nth-child(2) span {
+  color: rgb(187, 0, 255);
+}
+
+#intro button {
+  padding: 14px 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+#intro button:hover {
+  color: rgb(187, 0, 255);
+}
+
+
+/* INICIO SOBRE MIN */
+#sobreMin {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    height: 100vh;
+    border-top: 2px solid rgb(0, 0, 0);
+}
+
+#resumo {
+    margin-top: 10%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#meusConhecimentos {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#resumo h2, #meusConhecimentos h2 {
+    font-size: 50px;
+    color: rgb(187, 0, 255);
+}
+
+#resumo p, #meusConhecimentos ul li {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* INICIO CONTATO */
+#contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    border-top: 2px solid black;
+    text-align: center;
+}
+
+#contato h2 {
+    margin-top: 5%;
+    font-size: 50px;
+    color: rgb(187, 0, 255);
+}
+
+#contato p {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+#contato form {
+    text-align: left;
+    font-weight: 600;
+}
+
+#contato form input, 
+#contato form textarea {
+    height: 40px;
+    width: 400px;
+    max-width: 400px;
+    padding-inline: 5px;
+}
+
+@media screen and (max-width: 950px) {
+    /* HEADER */
+    header {
+        flex-direction: column;
+    }
+
+    /* INICIO MAIN */
+    #intro {
+        padding-inline: 20px;
+    }
+
+    #opresentacao p:nth-child(1) {
+        font-size: 27px;
+    }
+
+    #opresentacao p:nth-child(2) {
+        font-size: 37px;
+    }
+
+    #img-dev {
+        display: none;
+    }
+
+    /* INICIO SOBRE MIN */
+    #sobreMin {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #resumo, #meusConhecimentos {
+        margin-top: 0;
+        padding-inline: 20px;
+    }
+
+    #resumo h2, #meusConhecimentos h2 {
+        font-size: 40px;
+    }
+
+    #resumo p, #meusConhecimentos ul li {
+        font-size: 15px;
+    }
+
+    /* INICIO CONTATO */
+    #contato {
+        padding-inline: 20px;
+    }
+
+    #contato h2 {
+        font-size: 40px;
+    }
+
+    #contato form input, 
+    #contato form textarea {
+        width: 300px;
+    }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nivaldo Araújo - Portfólio</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header>
+
+    <h1>Portfólio</h1>
+    <nav>
+      <ul>
+        <a href="#sobreMin">
+          <li>Sobre mim</li>
+        </a>
+        <a href="#contato">
+          <li>Contato</li>
+        </a>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main>
+    <div id="intro">
+      <div id="apresentacao">
+        <p>Olá, seja bem-vindo(a) ao meu portfólio!</p>
+        <p>Meu nome é <span>Fábio Luiz</span> e eu sou um desenvolvedor web</p>
+      </div>
+
+      <div id="redes-sociais">
+        <a href="#">
+          <img src="./imagens/icons8-github-50.png" alt="">
+        </a>
+
+        <a href="#">
+          <img src="./imagens/icons8-linkedin-50.png" alt="">
+        </a>
+      </div>
+
+      <a href="#sobreMim">
+        <button>Conheça mais sobre mim</button>
+      </a>
+    </div>
+
+    <div id="img_dev">
+      <img src="./imagens/grapy-software-developer-coding-with-two-monitors.png" alt="">
+    </div>
+  </main>
+
+  <section id="sobreMin">
+    <div id="resumo">
+      <h2>Sobre mim</h2>
+      <p>
+        Meu nome é Fábio Luiz e eu estudo desenvolvimento web desde janeiro de 2024. Comecei estudando HTML/CSS e hoje tenho
+        conhecimento de diversas tecnologias.<br><br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam perferendis ipsa eum repudiandae dicta placeat
+        numquam sapiente iure iste saepe est ducimus architecto error omnis voluptas odit officiis, nesciunt veniam.
+      </p>
+    </div>
+
+    <div id="meusConhecimentos">
+      <h2>Meus conhecimentos</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section id="contato">
+    <h2>Você pode me enviar uma mensagem!</h2>
+    <p>
+        Preencha o seu nome, seu e-mail e escreva a mensagem que deseja enviar para mim. Logo quando eu puder, irei te responder.<br><br>
+        Desde já, agradeço o seu contato!
+    </p>
+
+    <form>
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="mensagem">Mensagem:</label><br>
+        <textarea id="mensagem" name="mensagem" rows="4" cols="50" required></textarea><br><br>
+        
+        <input id="btnEnviar" type="submit" value="Enviar">
+    </form>
+</section>
+
+
+
+  <!-- <footer>
+    <p>© 2025 Nivaldo Araújo - Todos os direitos reservados.</p>
+    <img src="img/icons8-github-50.png" alt="GitHub">
+    <img src="img/icons8-linkedin-50.png" alt="LinkedIn">
+  </footer> -->
+
+  <script src="script.js"></script>
+</body>
+
+</html>
