@@ -1,57 +1,59 @@
-/* Estilo base */
+/* Estilo base para o corpo da página */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #121212;
-  color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e legível */
+  background: #121212; /* Fundo escuro (modo escuro) */
+  color: #f0f0f0; /* Cor do texto padrão */
   margin: 0;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* Garante que o rodapé fique na parte inferior */
 }
 
-/* Header */
+/* Estilo do cabeçalho */
 header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
   padding: 40px 20px;
   background-color: #121212;
 }
 
+/* Container interno do cabeçalho */
 .header-content {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 20px; /* Espaçamento entre imagem e texto */
+  flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
   max-width: 900px;
 }
 
-/* Foto do perfil */
+/* Estilo da imagem de perfil */
 header img {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+  border-radius: 50%; /* Deixa a imagem redonda */
+  object-fit: cover; /* Garante que a imagem cubra o espaço */
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.5); /* Sombra azul */
 }
 
-/* Texto do header */
+/* Título do cabeçalho */
 .text-content h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #00bcd4;
+  color: #00bcd4; /* Azul vibrante */
 }
 
+/* Parágrafo no cabeçalho */
 .text-content p {
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 600px;
   margin: 0;
-  color: #ccc;
+  color: #ccc; /* Cinza claro */
 }
 
-/* Sessões principais */
+/* Seções principais (Contato e Sobre) */
 .contact,
 .about {
   max-width: 700px;
@@ -59,22 +61,24 @@ header img {
   text-align: center;
 }
 
+/* Parágrafos dentro das seções principais */
 .contact p,
 .about p {
   font-size: 1.1rem;
   margin-bottom: 10px;
 }
 
-/* Botões de navegação e links */
+/* Estilo dos links e botões de navegação */
 .links,
 .options {
   display: flex;
   justify-content: center;
   gap: 15px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Quebra de linha em telas pequenas */
   margin-top: 10px;
 }
 
+/* Aparência dos botões/links */
 .links a,
 .options a {
   color: #00bcd4;
@@ -89,40 +93,44 @@ header img {
   box-shadow: 0 0 8px rgba(0, 188, 212, 0.3);
 }
 
+/* Efeito hover nos links */
 .links a:hover,
 .options a:hover {
   background-color: #00bcd4;
-  color: #121212;
-  transform: scale(1.05);
+  color: #121212; /* Texto escuro com fundo azul no hover */
+  transform: scale(1.05); /* Leve aumento */
 }
 
+/* Ícone nos links */
 .links a i {
   margin-right: 8px;
   font-size: 1.2rem;
 }
 
-/* Seções internas */
+/* Estilo das seções de conteúdo ocultas/visíveis */
 section.content-section {
-  display: none;
+  display: none; /* Oculta por padrão */
   max-width: 700px;
   margin: 40px auto;
   padding: 20px;
   background-color: #1e1e1e;
   border-radius: 8px;
   color: white;
-  box-shadow: 0 0 15px rgba(0, 188, 212, 0.1);
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.1); /* Sombra suave */
 }
 
+/* Seção ativa (visível) */
 section.content-section.active {
   display: block;
 }
 
+/* Título das seções */
 section.content-section h2 {
   color: #00bcd4;
   margin-bottom: 10px;
 }
 
-/* Lista de bug bounty estilizada */
+/* Links das plataformas de Bug Bounty */
 .bugbounty-links a {
   color: #00bcd4;
   text-decoration: none;
@@ -136,12 +144,13 @@ section.content-section h2 {
   box-shadow: 0 0 5px rgba(0, 188, 212, 0.2);
 }
 
+/* Hover nos links das plataformas */
 .bugbounty-links a:hover {
   background-color: #00bcd4;
   color: #121212;
 }
 
-/* Ícones personalizados nas listas */
+/* Ícones personalizados nas listas das seções */
 .content-section ul li i {
   margin-right: 8px;
 }
@@ -156,16 +165,16 @@ footer {
   border-top: 1px solid #333;
 }
 
-/* Efeito hover nos ícones da seção Hobby */
+/* Efeito de zoom nos ícones da seção Hobby */
 #Hobby i {
   transition: transform 0.2s;
 }
 
 #Hobby li:hover i {
-  transform: scale(1.2);
+  transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
 }
 
-/* Responsividade */
+/* Responsividade para dispositivos menores */
 @media (max-width: 500px) {
   .text-content h1 {
     font-size: 2rem;
