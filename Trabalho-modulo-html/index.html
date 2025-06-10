@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfólio - Fábio Luiz</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      section.content-section {
+        display: none;
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #1e1e1e;
+        border-radius: 8px;
+        color: white;
+      }
+
+      section.content-section.active {
+        display: block;
+      }
+
+      section.content-section h2 {
+        color: #00bcd4;
+        margin-bottom: 10px;
+      }
+
+      .options a {
+        cursor: pointer;
+        margin-right: 15px;
+        color: #00bcd4;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <img src="/imagens/foto.jpeg" alt="Foto de Fábio" />
+        <div class="text-content">
+          <h1>Bem vindo (a) ao meu portfólio</h1>
+          <p>
+            <i>Me chamo Fábio Luiz e sou estudante de tecnologia, especialista em
+            Cyber Security e Desenvolvedor FullStack.</i>
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section class="contact">
+      <p>
+        Se quiser trocar ideias, colaborar ou contratar, entre em contato pelos
+        links abaixo.
+      </p>
+      <div class="links">
+        <a
+          href="https://www.linkedin.com/in/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a
+          href="https://github.com/pentestestrategico"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="mailto:fabioluizrl2@gmail.com">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a
+          href="https://instagram.com/binhorodriguesl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a
+          href="https://www.youtube.com/@PentestEstrategico"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+      </div>
+    </section>
+
+    <section class="about">
+      <p>Mas se quiser conhecer um pouco sobre mim, acesse uma das opções:</p>
+      <div class="options">
+        <a data-target="experiencia">Experiência</a>
+        <a data-target="conhecimento">Conhecimento</a>
+        <a data-target="formacao">Formação</a>
+        <a data-target="Hobby">Hobby</a>
+      </div>
+    </section>
+
+    <section id="experiencia" class="content-section">
+      <h2>Experiência</h2>
+      <ul>
+        <li>
+          Atualmente trabalho com segurança pública pela Polícia Militar do Rio
+          de Janeiro- desde 09/2011
+          <ul>
+            <li>Analista de Inteligência</li>
+            <ul><li>Cursos na corporação</li>
+                <ul><li>Aplicações Táticas - COE</li>
+                    <li>APH Tático</li>
+                    <li>MDPM- Método de Defesa Pessoal Militar</li>
+            <li>Cursando Analise e Desenvolvimento de Sistemas - <br>Desenvolvedor FullStack pela DSI</li></ul>
+          </ul>
+        </li>
+        <li>
+          Bug bounty pelas empresas:
+          <div class="bugbounty-links">
+          <ul>
+            <li>
+              <a
+                href="https://www.bughunt.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >BugHunt</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.hackerone.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >HackerOne</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.bugcrowd.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Bugcrowd</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul></div>
+    </section>
+
+    <section id="conhecimento" class="content-section">
+      <h2>Conhecimento</h2>
+      <ul>
+        <li>
+          Conhecimento em Kali Linux utilizando ferramentas de análise de
+          vulnerabilidades
+        </li>
+        <li>
+          Especialista em ferramentas de Pentest, como Burp Suite, para exploração
+          de Business Logic Vulnerabilities
+        </li>
+        <li>Especialista em Engenharia Social e Phishing</li>
+        <li>Conhecimentos em Pentest em redes Wi-Fi</li>
+        <li>OSINT em fontes abertas e fechadas</li>
+      </ul>
+    </section>
+
+    <section id="formacao" class="content-section">
+      <h2>Formação</h2>
+      <ul>
+        <li>Graduado em Direito pela Universidade de Nova Iguaçu - UNIG</li>
+        <li>
+          Pós-graduado em Penal e Processo Penal pela Universidade Estácio de Sá
+        </li>
+        <li>Cursando FullStack pelo Senai e DSI</li>
+        <li>Tecnologia de Redes Windows e Linux-Senai</li>
+      </ul>
+    </section>
+       <section id="Hobby" class="content-section">
+      <h2>Hobby</h2>
+    <ul>
+  <li><i class="fas fa-fist-raised" style="color: #f44336; transition: transform 0.2s;"></i> Lutador de Taekwondo - faixa Vermelha ponta preta (atual)</li>
+  <li><i class="fas fa-user-ninja" style="color: #ff9800;"></i> Lutador de Judô - faixa laranja</li>
+  <li><i class="fas fa-shield-alt" style="color: #4caf50;"></i> Lutador de Kombato - faixa verde</li>
+  <li><i class="fas fa-drum" style="color: #ffeb3b;"></i> Lutador de capoeira - cordel verde e amarelo</li>
+  <li><i class="fas fa-running" style="color: #2196f3;"></i> Corredor amador max 21km</li>
+  <li><i class="fas fa-smile-beam" style="color: #9c27b0;"></i> Mas o que eu realmente gosto é curtir minha família</li>
+  <li><i class="fas fa-heart" style="color: red;"></i> Apaixonado pelo meu filho e minha amada esposa</li>
+</ul>
+
+    </section>
+
+    <footer>© 2025 Fábio Luiz. Todos os direitos reservados.</footer>
+
+    <script>
+      const links = document.querySelectorAll(".options a");
+      const sections = document.querySelectorAll("section.content-section");
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          const target = link.getAttribute("data-target");
+
+          sections.forEach((section) => {
+            if (section.id === target) {
+              section.classList.add("active");
+              section.scrollIntoView({ behavior: "smooth" });
+            } else {
+              section.classList.remove("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
