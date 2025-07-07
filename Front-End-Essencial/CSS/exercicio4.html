@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Museu Nacional</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background-color: #EEEEED;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .linha-topo {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 80px;
+      max-width: 100%;
+    }
+
+    .titulo {
+      font-size: clamp(30px, 5vw, 70px);
+      font-weight: bold;
+      color: #0D1856;
+      text-align: center;
+      flex: 1;
+    }
+
+    .direita {
+      width: 80px;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    /* ================= CONTAINER GERAL ================= */
+    .container {
+      display: flex;
+      flex: 1;
+      background-color: white;
+      flex-wrap: wrap;
+    }
+
+    /* ================= MENU LATERAL ================= */
+    .menu {
+      background-color: #EEEEED;
+      color: #0D1856;
+      width: 250px;
+      padding: 20px;
+    }
+
+    .menu p {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: color 0.3s;
+      padding-left: 30px;
+    }
+
+    .menu p:hover {
+      color: #00ccff;
+    }
+
+    .menu p::before {
+      content: "►";
+      font-size: 14px;
+      color: #00ccff;
+    }
+
+    .menu img {
+      margin-top: 30px;
+      width: 150px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ================= CONTEÚDO PRINCIPAL ================= */
+    .conteudo {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      background-color: #fff;
+      justify-content: flex-start;
+    }
+
+    /* ================= THUMBNAIL CARD ================= */
+    .thumbnail {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #fafafa;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .caixa {
+      padding: 15px;
+    }
+
+    .caixa h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #0D1856;
+    }
+
+    .caixa h4 a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .caixa h4 a:hover {
+      color: #00ccff;
+    }
+
+    .destaque-esquerda {
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* ================= RESPONSIVO ================= */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .menu {
+        width: 100%;
+        order: -1;
+      }
+
+      .linha-topo {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .titulo {
+        font-size: 40px;
+      }
+
+      .conteudo {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="linha-topo">
+      <div class="esquerda">
+        <img src="/img/logo museu.png" alt="Logo Museu" class="logo" />
+      </div>
+      <div class="titulo">MUSEU NACIONAL</div>
+      <div class="direita"></div>
+    </div>
+    <img src="/img/banner.jpg" alt="Banner Museu" class="banner" />
+  </header>
+
+  <!-- CONTAINER GERAL -->
+  <div class="container">
+
+    <!-- MENU LATERAL -->
+    <nav class="menu">
+      <p>O MUSEU</p>
+      <p>EXPOSIÇÕES</p>
+      <p>PESQUISA</p>
+      <p>PÓS-GRADUAÇÃO</p>
+      <p>EXTENSÃO</p>
+      <p>ACERVO</p>
+      <p>VISITAÇÃO</p>
+      <p>EDUCATIVO</p>
+      <br /><br />
+      <img src="/img/doe-donate.jpg" alt="Doação" />
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+      <div class="thumbnail">
+        <a href="destaques/concurso-publico-docente-da-2025.html">
+          <img src="/img/museu2.jpeg" alt="Mestrado e Doutorado" />
+        </a>
+        <div class="caixa">
+          <h4>
+            <a href="destaques/concurso-publico-docente-da-2025.html">Concurso para Docente</a>
+          </h4>
+          <p class="destaque-esquerda">
+            Confira o resultado final do Concurso Público Docente - MC-230 - Setor Antropologia Social
+          </p>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <a href="destaques/politica-gerenciamento-colecoes-mn.html">
+          <img src="/img/museu3.jpg" alt="Política de gerenciamento de coleções" />
+        </a>
+        <div class="caixa">
+          <h4>
+            <a href="destaques/politica-gerenciamento-colecoes-mn.html">Lançamento</a>
+          </h4>
+          <p class="destaque-esquerda">
+            Conheça a política de gerenciamento de coleções do Museu Nacional.
+          </p>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <a href="destaques/bolsa_doutorado_prisc_2025.html">
+          <img src="/img/museu4jpeg.jpeg" alt="Bolsas de Doutorado" />
+        </a>
+        <div class="caixa">
+          <h4>
+            <a href="destaques/bolsa_doutorado_prisc_2025.html">Bolsas de Doutorado</a>
+          </h4>
+          <p class="destaque-esquerda">
+            Conheça as bolsas de doutorado oferecidas pelo FCT-PRISC-UFRJ
+          </p>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <a href="destaques/207_anos.html">
+          <img src="/img/museu3.jpg" alt="Aniversário do Museu" />
+        </a>
+        <div class="caixa">
+          <h4>
+            <a href="destaques/207_anos.html">Aniversário do Museu</a>
+          </h4>
+          <p class="destaque-esquerda">
+            Venha comemorar conosco os 207 anos do Museu Nacional/UFRJ. Acesse a programação completa!
+          </p>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <a href="relatorios-anuais/index.html">
+          <img src="/img/museu5.jpg" alt="Relatórios Anuais" />
+        </a>
+        <div class="caixa">
+          <h4>
+            <a href="relatorios-anuais/index.html">Relatórios Anuais</a>
+          </h4>
+          <p class="destaque-esquerda">
+            Leia os relatórios institucionais do Museu Nacional/UFRJ entre 2018 e 2023
+          </p>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <a href="profllind/processo_seletivo.html">
+          <img src="/img/museu6.jpg" alt="Mestrado Profissional" />
+        </a>
+        <div class="caixa">
+          <h4>
+            <a href="profllind/processo_seletivo.html">Mestrado Profissional</a>
+          </h4>
+          <p class="destaque-esquerda">
+            Linguística e Línguas Indígenas. Inscrições abertas de 28/04/2025 a 14/05/2025. Acesse o edital
+          </p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

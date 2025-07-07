@@ -1,0 +1,4 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+select, button, textarea { margin-top: 10px; display: block; }
+textarea { width: 300px; height: 150px; }
+.resultado { margin-top: 10px; font-weight: bold; }

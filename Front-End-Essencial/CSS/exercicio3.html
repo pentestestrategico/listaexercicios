@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TechView - Página Institucional</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding-left: 200px; /* espaço para o menu lateral fixo */
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 200px;
+      right: 0;
+      height: 60px;
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      background-color: #222;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    main {
+      margin-top: 80px;
+      margin-bottom: 60px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 200px);
+      gap: 20px;
+    }
+
+    .bloco {
+      background-color: white;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 200px;
+      right: 0;
+      height: 50px;
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-left: 0;
+      }
+
+      nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      header, footer {
+        left: 0;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 200px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <nav>
+    <a href="#">Início</a>
+    <a href="#">Sobre</a>
+    <a href="#">Serviços</a>
+    <a href="#">Contato</a>
+  </nav>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>TechView - Conteúdo Digital</h1>
+  </header>
+
+  <!-- Galeria principal -->
+  <main>
+    <div class="bloco">Bloco 1</div>
+    <div class="bloco">Bloco 2</div>
+    <div class="bloco">Bloco 3</div>
+    <div class="bloco">Bloco 4</div>
+    <div class="bloco">Bloco 5</div>
+    <div class="bloco">Bloco 6</div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    &copy; 2025 TechView. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>

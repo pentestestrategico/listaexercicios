@@ -1,0 +1,8 @@
+Exercício
+1 - Crie uma lista json com os seguintes campos: id, nome, 
+idade.
+Faça um programa que mostre na tela a lista criada por você usando o fetch. Formate com seu estilo css.
+
+2 - Usar uma api Externa do Viacep ou jsonplaceholder. Renderizar a lista com alguns campos vindo da api externa usando o http - fetch.
+
+Atenção: Pessoal, entregar os 4 exercícios de CSS, temos que ter uma data final. Quinta vamos fazer um site em grupo de 4 pessoas.

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1 - JSON Server</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h2 id="formTitulo">Adicionar Post</h2>
+    <ul id="postList"></ul>
+
+    <input type="text" id="titulo" placeholder="Título">
+    <input type="text" id="corpo" placeholder="Conteúdo">
+    <button id="addBtn">Adicionar</button>
+
+    <script>
+        // 🎯 Seleção dos elementos HTML que serão manipulados
+        const ul = document.getElementById('postList');      // Lista de posts
+        const addBtn = document.getElementById('addBtn');    // Botão de adicionar ou atualizar
+        const titleInput = document.getElementById('titulo'); // Input do título
+        const bodyInput = document.getElementById('corpo');   // Input do conteúdo
+        const formTitle = document.getElementById('formTitulo'); // Título do formulário (h2)
+
+        let editId = null; // Se diferente de null, significa que está editando um post
+
+        // 🟢 Função que carrega todos os posts da API e renderiza na tela
+        function carregarPosts() {
+            fetch('http://localhost:3001/posts') // Faz uma requisição GET para a API
+                .then(response => response.json()) // Converte a resposta em JSON
+                .then(posts => {
+                    ul.innerHTML = ''; // Limpa a lista antes de renderizar os itens
+
+                    // Percorre cada post retornado da API
+                    posts.forEach(post => {
+                        const li = document.createElement('li'); // Cria um item da lista
+                        li.innerHTML = `
+                            <strong>${post.title}</strong><br>${post.body}<br>
+                            <button class="editar-btn" data-id="${post.id}" data-title="${encodeURIComponent(post.title)}" data-body="${encodeURIComponent(post.body)}">Editar</button>
+                            <button class="deletar-btn" data-id="${post.id}">Excluir</button>
+                            <hr>
+                        `;
+                        ul.appendChild(li); // Adiciona o item na lista
+                    });
+
+                    // 🔥 Adiciona evento para os botões de editar
+                    document.querySelectorAll('.editar-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const id = btn.getAttribute('data-id');
+                            const title = decodeURIComponent(btn.getAttribute('data-title'));
+                            const body = decodeURIComponent(btn.getAttribute('data-body'));
+                            iniciarEdicao(id, title, body); // Chama a função de iniciar edição
+                        });
+                    });
+
+                    // 🔥 Adiciona evento para os botões de excluir
+                    document.querySelectorAll('.deletar-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const id = btn.getAttribute('data-id');
+                            deletarPost(id); // Chama a função de deletar post
+                        });
+                    });
+                });
+        }
+
+        // 🚀 Executa a função de carregar posts assim que a página abre
+        carregarPosts();
+
+        // ➕ Função que adiciona um novo post ou atualiza um existente
+        addBtn.addEventListener('click', () => {
+            const title = titleInput.value.trim(); // Pega o valor do input título
+            const body = bodyInput.value.trim();   // Pega o valor do input corpo
+
+            // Verifica se os campos estão preenchidos
+            if (!title || !body) {
+                return alert('Preencha todos os campos!');
+            }
+
+            if (editId) {
+                // 🔄 Se existe um editId, então é uma atualização (PUT)
+                fetch(`http://localhost:3001/posts/${editId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title, body }) // Envia os novos dados
+                })
+                .then(res => res.json())
+                .then(() => {
+                    carregarPosts();      // Recarrega a lista atualizada
+                    resetarFormulario();  // Reseta o formulário
+                    alert('Post atualizado com sucesso!');
+                });
+            } else {
+                // ➕ Se não existe editId, é uma criação (POST)
+                fetch('http://localhost:3001/posts', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title, body }) // Envia os dados
+                })
+                .then(res => res.json())
+                .then(() => {
+                    carregarPosts();      // Recarrega a lista com o novo post
+                    resetarFormulario();  // Limpa os campos
+                    alert('Post adicionado com sucesso!');
+                });
+            }
+        });
+
+        // 🧽 Função que limpa os campos e reseta o formulário para o estado de "Adicionar"
+        function resetarFormulario() {
+            titleInput.value = '';       // Limpa campo título
+            bodyInput.value = '';        // Limpa campo corpo
+            editId = null;               // Cancela modo de edição
+            addBtn.textContent = 'Adicionar'; // Texto do botão volta a ser "Adicionar"
+            formTitle.textContent = 'Adicionar Post'; // Título volta a ser "Adicionar Post"
+        }
+
+        // ❌ Função que deleta um post com base no ID
+        function deletarPost(id) {
+            if (confirm('Deseja realmente excluir este post?')) {
+                fetch(`http://localhost:3001/posts/${id}`, {
+                    method: 'DELETE' // Requisição DELETE
+                })
+                .then(() => {
+                    carregarPosts(); // Atualiza a lista após exclusão
+                    alert('Post excluído com sucesso!');
+                });
+            }
+        }
+
+        // ✍️ Função que inicia o modo de edição de um post
+        function iniciarEdicao(id, title, body) {
+            titleInput.value = title;   // Preenche o input título com o título do post
+            bodyInput.value = body;     // Preenche o input corpo com o corpo do post
+            editId = id;                // Define que o post com esse ID está sendo editado
+            addBtn.textContent = 'Atualizar';      // Altera o texto do botão para "Atualizar"
+            formTitle.textContent = 'Editar Post'; // Altera o título do formulário para "Editar Post"
+        }
+
+    </script>
+
+</body>
+</html>

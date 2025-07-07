@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Avaliação Prática - JavaScript (20 pts)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f5;
+      padding: 30px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #005792;
+      margin-bottom: 40px;
+    }
+
+    .exercicio {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 18px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Avaliação Prática de JavaScript - 20 Pontos</h1>
+
+  <div class="exercicio">
+    <h2>1. Calculadora Avançada</h2>
+    <p>Peça dois números e a operação desejada (+, -, *, /, %, **). Mostre o resultado com <code>document.write()</code>.</p>
+    <button onclick="calculadoraAvancada()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>2. Classificação Etária</h2>
+    <p>Peça a idade e classifique: criança (≤12), adolescente (13-17), adulto (18-59), idoso (60+).</p>
+    <button onclick="classificarIdade()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>3. Tabuada com Intervalo</h2>
+    <p>Peça número base e limite final. Mostre a tabuada até esse limite.</p>
+    <button onclick="tabuadaPersonalizada()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>4. Soma de Pares com while</h2>
+    <p>Some todos os pares até um limite informado com <code>document.write()</code>.</p>
+    <button onclick="somaParesWhile()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>5. Validação de Senha</h2>
+    <p>Permita até 3 tentativas para digitar "senai123".</p>
+    <button onclick="validaSenha()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>6. Fatorial com Validação</h2>
+    <p>Peça um número positivo e exiba seu fatorial com for.</p>
+    <button onclick="calcularFatorial()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>7. Verificação de Número Primo</h2>
+    <p>Peça um número e informe se é primo com <code>document.write()</code>.</p>
+    <button onclick="verificarPrimo()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>8. Média com Entradas Ilimitadas</h2>
+    <p>Peça números até digitar "fim". Mostre a média.</p>
+    <button onclick="mediaAritmetica()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>9. Contador Regressivo</h2>
+    <p>Peça um número > 0 e exiba contagem regressiva até 0.</p>
+    <button onclick="contadorRegressivo()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>10. Pares e múltiplos de 3</h2>
+    <p>Peça número inicial e final e mostre os que são pares e múltiplos de 3.</p>
+    <button onclick="verificaMultiplos()">Executar</button>
+  </div>
+</div>
+
+<footer>
+  Desenvolvido para Avaliação Prática | Envie para prof.desemble@gmail.com
+</footer>
+
+<script>
+  function calculadoraAvancada() {
+    const n1 = parseFloat(prompt("Digite o primeiro número:"));
+    const n2 = parseFloat(prompt("Digite o segundo número:"));
+    const op = prompt("Digite a operação (+, -, *, /, %, **):");
+    let resultado;
+
+    if (op === "+") resultado = n1 + n2;
+    else if (op === "-") resultado = n1 - n2;
+    else if (op === "*") resultado = n1 * n2;
+    else if (op === "/") resultado = n1 / n2;
+    else if (op === "%") resultado = n1 % n2;
+    else if (op === "**") resultado = n1 ** n2;
+    else resultado = "Operação inválida!";
+
+    document.write(`<h2>Resultado: ${resultado}</h2>`);
+  }
+
+  function classificarIdade() {
+    const idade = parseInt(prompt("Informe sua idade:"));
+    let classificacao = "";
+
+    if (idade <= 12) classificacao = "Criança";
+    else if (idade <= 17) classificacao = "Adolescente";
+    else if (idade <= 59) classificacao = "Adulto";
+    else classificacao = "Idoso";
+
+    alert(`Classificação: ${classificacao}`);
+  }
+
+  function tabuadaPersonalizada() {
+    const base = parseInt(prompt("Digite o número base:"));
+    const fim = parseInt(prompt("Digite até qual número mostrar:"));
+    let resultado = "";
+
+    for (let i = 1; i <= fim; i++) {
+      resultado += `${base} x ${i} = ${base * i}\n`;
+    }
+
+    alert(resultado);
+  }
+
+  function somaParesWhile() {
+    const limite = parseInt(prompt("Digite o número limite:"));
+    let soma = 0;
+    let i = 1;
+
+    while (i <= limite) {
+      if (i % 2 === 0) soma += i;
+      i++;
+    }
+
+    document.write(`<h2>Soma dos pares até ${limite}: ${soma}</h2>`);
+  }
+
+  function validaSenha() {
+    let tentativas = 0;
+    const senhaCorreta = "senai123";
+
+    while (tentativas < 3) {
+      const senha = prompt("Digite a senha:");
+      if (senha === senhaCorreta) {
+        alert("Acesso permitido");
+        return;
+      }
+      tentativas++;
+    }
+
+    alert("Acesso bloqueado");
+  }
+
+  function calcularFatorial() {
+    const num = parseInt(prompt("Digite um número positivo:"));
+    if (num < 0 || isNaN(num)) {
+      alert("Número inválido.");
+      return;
+    }
+
+    let fatorial = 1;
+    for (let i = 1; i <= num; i++) fatorial *= i;
+
+    alert(`${num}! = ${fatorial}`);
+  }
+
+  function verificarPrimo() {
+    const n = parseInt(prompt("Digite um número:"));
+    let primo = true;
+
+    if (n <= 1) primo = false;
+    else {
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+          primo = false;
+          break;
+        }
+      }
+    }
+
+    document.write(`<h2>O número ${n} ${primo ? "é" : "não é"} primo.</h2>`);
+  }
+
+  function mediaAritmetica() {
+    let soma = 0, count = 0, entrada;
+
+    while (true) {
+      entrada = prompt("Digite um número ou 'fim':");
+      if (entrada.toLowerCase() === "fim") break;
+
+      const numero = parseFloat(entrada);
+      if (!isNaN(numero)) {
+        soma += numero;
+        count++;
+      }
+    }
+
+    if (count > 0) {
+      const media = soma / count;
+      alert(`Média dos ${count} números: ${media.toFixed(2)}`);
+    } else {
+      alert("Nenhum número válido digitado.");
+    }
+  }
+
+  function contadorRegressivo() {
+    let num = parseInt(prompt("Digite um número maior que 0:"));
+    if (isNaN(num) || num <= 0) {
+      alert("Número inválido.");
+      return;
+    }
+
+    let resultado = "";
+    while (num >= 0) {
+      resultado += num + " ";
+      num--;
+    }
+
+    alert("Contagem regressiva:\n" + resultado);
+  }
+
+  function verificaMultiplos() {
+    const inicio = parseInt(prompt("Número inicial:"));
+    const fim = parseInt(prompt("Número final:"));
+    let encontrados = [];
+
+    for (let i = inicio; i <= fim; i++) {
+      if (i % 2 === 0 && i % 3 === 0) {
+        encontrados.push(i);
+      }
+    }
+
+    if (encontrados.length > 0) {
+      alert("Números pares e múltiplos de 3:\n" + encontrados.join(", "));
+    } else {
+      alert("Nenhum número atende aos critérios.");
+    }
+  }
+</script>
+
+</body>
+</html>

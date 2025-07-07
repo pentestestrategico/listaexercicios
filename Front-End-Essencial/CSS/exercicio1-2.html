@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página com Layout Fixo</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Cabeçalho sticky */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #34495e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      z-index: 1000;
+    }
+
+    /* Menu lateral fixo */
+    nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100vh;
+      background-color: #2c3e50;
+      padding-top: 60px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      padding: 15px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Conteúdo principal */
+    main {
+      margin-left: 220px; /* margem para não cobrir o menu */
+      padding: 20px;
+    }
+
+    section {
+      height: 500px;
+      background-color: #ecf0f1;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+
+    /* Botão flutuante */
+    .botao-flutuante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #e74c3c;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      border: none;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .botao-flutuante:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Cabeçalho Fixo
+  </header>
+
+  <nav>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Seção 1</h2>
+      <p>Conteúdo da primeira seção...</p>
+    </section>
+    <section>
+      <h2>Seção 2</h2>
+      <p>Conteúdo da segunda seção...</p>
+    </section>
+    <section>
+      <h2>Seção 3</h2>
+      <p>Conteúdo da terceira seção...</p>
+    </section>
+  </main>
+
+  <button class="botao-flutuante">+</button>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+[
+  { "id": 1, "produto": "Arroz", "preco": 5.99, "peso": 1 },
+  { "id": 2, "produto": "Feijão", "preco": 7.49, "peso": 1 },
+  { "id": 3, "produto": "Açúcar", "preco": 3.90, "peso": 1 },
+  { "id": 4, "produto": "Farinha", "preco": 4.70, "peso": 1 },
+  { "id": 5, "produto": "Café", "preco": 10.00, "peso": 0.5 }
+]

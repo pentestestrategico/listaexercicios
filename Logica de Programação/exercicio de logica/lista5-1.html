@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista 5.1 - Exercícios de JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      margin: 0;
+      padding: 30px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #005792;
+      margin-bottom: 40px;
+    }
+
+    .exercicio {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    p {
+      margin: 5px 0 10px;
+    }
+
+    button {
+      padding: 10px 18px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Lista 5.1 - Exercícios de JavaScript</h1>
+
+  <!-- Exercícios -->
+  <div class="exercicio">
+    <h2>1. Números de 1 a 100</h2>
+    <p>Exiba os números de 1 até 100.</p>
+    <button onclick="ex1()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>2. Números de 100 a 1</h2>
+    <p>Exiba os números de 100 até 1 em ordem decrescente.</p>
+    <button onclick="ex2()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>3. Quadrados de 15 a 200</h2>
+    <p>Exiba o quadrado dos números inteiros de 15 a 200.</p>
+    <button onclick="ex3()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>4. Soma dos 100 primeiros números inteiros</h2>
+    <p>Calcule e exiba a soma de 1 até 100.</p>
+    <button onclick="ex4()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>5. Tabuada de um número</h2>
+    <p>Solicite um número e exiba sua tabuada de 1 a 10.</p>
+    <button onclick="ex5()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>6. Multiplicação sucessiva por 3</h2>
+    <p>Multiplique um número (≤ 50) por 3 enquanto o produto for menor que 250.</p>
+    <button onclick="ex6()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>7. Divisíveis por 4 menores que 200</h2>
+    <p>Mostre todos os números menores que 200 que são divisíveis por 4.</p>
+    <button onclick="ex7()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>8. Números ímpares de 0 a 20</h2>
+    <p>Mostre os números ímpares entre 0 e 20.</p>
+    <button onclick="ex8()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>9. Soma dos pares até 500</h2>
+    <p>Calcule a soma de todos os números pares de 0 a 500.</p>
+    <button onclick="ex9()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>10. Potências de 3 de 0 a 15</h2>
+    <p>Exiba 3 elevado de 0 até 15.</p>
+    <button onclick="ex10()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>11. Potência de base e expoente</h2>
+    <p>Calcule a potência de uma base elevada a um expoente (sem usar Math.pow).</p>
+    <button onclick="ex11()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>12. Maior, menor e média (entrada até -1)</h2>
+    <p>Peça vários números até -1 e informe o maior, o menor e a média.</p>
+    <button onclick="ex12()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>13. Tabuada de 3 a 6</h2>
+    <p>Mostre as tabuadas de 3 a 6 (de 1 a 10).</p>
+    <button onclick="ex13()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>14. Fatorial de 5</h2>
+    <p>Calcule 5! (fatorial de 5).</p>
+    <button onclick="ex14()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>15. Série de Fibonacci (15 primeiros)</h2>
+    <p>Mostre os 15 primeiros termos da série de Fibonacci.</p>
+    <button onclick="ex15()">Executar</button>
+  </div>
+</div>
+
+<script>
+  function ex1() {
+    let res = "";
+    for (let i = 1; i <= 100; i++) res += i + " ";
+    alert(res);
+  }
+
+  function ex2() {
+    let res = "";
+    for (let i = 100; i >= 1; i--) res += i + " ";
+    alert(res);
+  }
+
+  function ex3() {
+    let res = "";
+    for (let i = 15; i <= 200; i++) res += `${i}² = ${i*i}\n`;
+    alert(res);
+  }
+
+  function ex4() {
+    let soma = 0;
+    for (let i = 1; i <= 100; i++) soma += i;
+    alert("Soma de 1 a 100: " + soma);
+  }
+
+  function ex5() {
+    let num = parseInt(prompt("Digite um número:"));
+    let res = "";
+    for (let i = 1; i <= 10; i++) res += `${num} x ${i} = ${num*i}\n`;
+    alert(res);
+  }
+
+  function ex6() {
+    let n = parseInt(prompt("Digite um número (≤ 50):"));
+    let res = "", produto = n;
+    while (produto < 250) {
+      res += produto + " ";
+      produto *= 3;
+    }
+    alert("Resultado: " + res);
+  }
+
+  function ex7() {
+    let res = "";
+    for (let i = 1; i < 200; i++) {
+      if (i % 4 === 0) res += i + " ";
+    }
+    alert(res);
+  }
+
+  function ex8() {
+    let res = "";
+    for (let i = 0; i <= 20; i++) {
+      if (i % 2 !== 0) res += i + " ";
+    }
+    alert("Ímpares: " + res);
+  }
+
+  function ex9() {
+    let soma = 0;
+    for (let i = 0; i <= 500; i += 2) soma += i;
+    alert("Soma dos pares de 0 a 500: " + soma);
+  }
+
+  function ex10() {
+    let res = "";
+    for (let i = 0; i <= 15; i++) {
+      res += `3^${i} = ${3**i}\n`;
+    }
+    alert(res);
+  }
+
+  function ex11() {
+    let base = parseInt(prompt("Digite a base:"));
+    let expoente = parseInt(prompt("Digite o expoente:"));
+    let resultado = 1;
+    for (let i = 1; i <= expoente; i++) resultado *= base;
+    alert(`${base} ^ ${expoente} = ${resultado}`);
+  }
+
+  function ex12() {
+    let num, soma = 0, count = 0, maior = -Infinity, menor = Infinity;
+    while (true) {
+      num = parseFloat(prompt("Digite um número (-1 para encerrar):"));
+      if (num === -1) break;
+      soma += num;
+      count++;
+      if (num > maior) maior = num;
+      if (num < menor) menor = num;
+    }
+    if (count > 0)
+      alert(`Maior: ${maior}\nMenor: ${menor}\nMédia: ${(soma/count).toFixed(2)}`);
+    else alert("Nenhum número foi digitado.");
+  }
+
+  function ex13() {
+    let res = "";
+    for (let n = 3; n <= 6; n++) {
+      res += `Tabuada do ${n}:\n`;
+      for (let i = 1; i <= 10; i++) res += `${n} x ${i} = ${n*i}\n`;
+      res += "\n";
+    }
+    alert(res);
+  }
+
+  function ex14() {
+    let fat = 1;
+    for (let i = 1; i <= 5; i++) fat *= i;
+    alert("5! = " + fat);
+  }
+
+  function ex15() {
+    let a = 1, b = 1, res = "1 1 ";
+    for (let i = 3; i <= 15; i++) {
+      let prox = a + b;
+      res += prox + " ";
+      a = b;
+      b = prox;
+    }
+    alert("Fibonacci: " + res);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const produtos_1 = require("./produtos");
+const prod = new produtos_1.Produtos(20, 'Celio', 200);
+prod.setCodigo(60);
+prod.setNome('Nivaldo');
+prod.setPreco(320);
+console.log(`O código é: ${prod.getCodigo()}`);
+console.log(`O nome é: ${prod.getNome()}`);
+console.log(`O preço é: ${prod.getPreco()}`);

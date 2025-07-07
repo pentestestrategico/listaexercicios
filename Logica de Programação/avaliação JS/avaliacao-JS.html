@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Avaliação JS - Resolvida</title>
+</head>
+<body>
+  <h1>Avaliação JavaScript - Exercícios Resolvidos</h1>
+  <button onclick="ex1()">Exercício 1</button>
+  <button onclick="ex2()">Exercício 2</button>
+  <button onclick="ex3()">Exercício 3</button>
+  <button onclick="ex4()">Exercício 4</button>
+  <button onclick="ex5()">Exercício 5</button>
+  <button onclick="ex6()">Exercício 6</button>
+  <button onclick="ex7()">Exercício 7</button>
+  <button onclick="ex8()">Exercício 8</button>
+
+  <script>
+    function ex1() {
+      const totalConta = parseFloat(prompt("Valor total da conta:"));
+      const gorjetaPercentual = parseFloat(prompt("Percentual de gorjeta (%):"));
+      const pessoas = parseInt(prompt("Quantidade de pessoas:"));
+
+      const gorjeta = (gorjetaPercentual / 100) * totalConta;
+      const totalPagar = totalConta + gorjeta;
+      const valorPorPessoa = totalPagar / pessoas;
+
+      alert(`Gorjeta: R$${gorjeta.toFixed(2)}\nTotal a pagar: R$${totalPagar.toFixed(2)}\nCada pessoa paga: R$${valorPorPessoa.toFixed(2)}`);
+    }
+
+    function ex2() {
+      const consumo = parseFloat(prompt("Consumo de energia (kWh):"));
+      let valor = 0;
+
+      if (consumo <= 100) valor = consumo * 0.50;
+      else if (consumo <= 200) valor = consumo * 0.65;
+      else valor = consumo * 0.80;
+
+      alert(`Valor da conta: R$${valor.toFixed(2)}`);
+    }
+
+    function ex3() {
+      const salario = parseFloat(prompt("Informe o salário atual:"));
+      let novoSalario = salario;
+
+      if (salario <= 2000) novoSalario *= 1.10;
+      else if (salario <= 5000) novoSalario *= 1.07;
+      else novoSalario *= 1.05;
+
+      alert(`Novo salário: R$${novoSalario.toFixed(2)}`);
+    }
+
+    function ex4() {
+      const a = parseFloat(prompt("Lado A:"));
+      const b = parseFloat(prompt("Lado B:"));
+      const c = parseFloat(prompt("Lado C:"));
+
+      if (a + b > c && a + c > b && b + c > a) {
+        alert("Os lados formam um triângulo válido.");
+      } else {
+        alert("Os lados NÃO formam um triângulo.");
+      }
+    }
+
+    function ex5() {
+      for (let i = 1; i <= 10; i++) {
+        const num = parseInt(prompt(`Informe o número ${i}:`));
+        let msg = `Número ${num}:\n`;
+
+        msg += num % 2 === 0 ? "- É par\n" : "- Não é par\n";
+        msg += num % 4 === 0 ? "- Divisível por 4\n" : "- Não é divisível por 4\n";
+        msg += num > 30 ? "- É maior que 30\n" : "- Não é maior que 30\n";
+
+        alert(msg);
+      }
+    }
+
+    function ex6() {
+      const num = parseInt(prompt("Digite um número inteiro:"));
+      if (num % 5 === 0 && num % 6 === 0) {
+        console.log(`${num} é divisível por 5 e 6 ao mesmo tempo.`);
+      } else {
+        console.log(`${num} não é divisível por 5 e 6 simultaneamente.`);
+      }
+    }
+
+    function ex7() {
+      const peso = parseFloat(prompt("Informe seu peso (kg):"));
+      const altura = parseFloat(prompt("Informe sua altura (m):"));
+      const imc = peso / (altura * altura);
+
+      console.log(`Seu IMC é: ${imc.toFixed(2)}`);
+    }
+
+    function ex8() {
+      let maior = -Infinity;
+      let menor = Infinity;
+
+      for (let i = 1; i <= 10; i++) {
+        const num = parseInt(prompt(`Digite o número ${i}:`));
+        if (num > maior) maior = num;
+        if (num < menor) menor = num;
+      }
+
+      alert(`Maior número: ${maior}\nMenor número: ${menor}`);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function buscarPost(){
+        try {
+            console.log('Iniciando a busca do post')
+            const resposta = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+            if(!resposta){
+                throw new Error('Erro ao buscar o post: ' + resposta.status)
+            }
+            const dados = await resposta.json()
+            // dados 
+            console.log('Posts encontrados')
+            console.log('ID', dados.id)
+            console.log('Título', dados.title)
+            console.log('Conteúdo', dados.body)
+        } catch (erro) {
+            console.log("Ocorreu um erro: ", erro.message)
+        }
+        // bloco que sempre é executado, mesmo com o erro
+        finally{
+            console.log("Finalizando a Operação de busca!!!")
+        }
+
+        }
+        buscarPost()
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios JS com Enunciados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f8fa;
+      padding: 30px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #005792;
+      margin-bottom: 30px;
+    }
+
+    .exercicio {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Exercícios de JavaScript Resolvidos</h1>
+
+  <div class="exercicio">
+    <h2>1. Classificação por Idade</h2>
+    <p>Peça ao usuário quantas pessoas deseja cadastrar. Para cada uma, informe a idade.</p>
+    <p>Classifique quantas são: crianças (até 12), adolescentes (13–17), adultos (18–59) e idosos (60+).</p>
+    <button onclick="questao1()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>2. Controle de Estoque</h2>
+    <p>Simule um menu com opções de entrada, saída, verificação de estoque e saída do sistema.</p>
+    <p>Comece com 100 unidades e atualize conforme a escolha do usuário.</p>
+    <button onclick="questao2()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>3. Validação de Senha</h2>
+    <p>Permita até 3 tentativas para digitar a senha correta ("senai123").</p>
+    <p>Se acertar, mostre "Bem-vindo". Caso contrário, bloqueie o acesso.</p>
+    <button onclick="questao3()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>4. Números Primos em Intervalo</h2>
+    <p>Solicite dois números e exiba todos os números primos entre eles.</p>
+    <button onclick="questao4()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>5. Simulador de Fila</h2>
+    <p>Simule uma fila com as opções: adicionar pessoa, atender, mostrar fila e sair.</p>
+    <button onclick="questao5()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>6. Pesquisa de Satisfação</h2>
+    <p>Solicite notas de 10 clientes e classifique como:</p>
+    <p>Ruim (0–4), Regular (5–7) e Ótimo (8–10).</p>
+    <button onclick="questao6()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>7. Cálculo de Média</h2>
+    <p>Peça o nome de 5 alunos. Para cada um, solicite 3 notas.</p>
+    <p>Calcule a média e informe se foi aprovado (>=7) ou reprovado.</p>
+    <button onclick="questao7()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>8. Análise de Vendas</h2>
+    <p>Com um array fixo de vendas de 7 dias, exiba:</p>
+    <p>Total vendido, média e quantos dias foram acima de R$300.</p>
+    <button onclick="questao8()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>9. Verificação em Lista</h2>
+    <p>Crie um array com 10 números. Peça ao usuário um número e diga se ele está presente.</p>
+    <button onclick="questao9()">Executar</button>
+  </div>
+
+  <div class="exercicio">
+    <h2>10. Caixa Eletrônico</h2>
+    <p>Solicite um valor inteiro e mostre quantas notas de R$100, R$50, R$20 e R$10 serão entregues.</p>
+    <button onclick="questao10()">Executar</button>
+  </div>
+</div>
+
+
+
+<script>
+  function questao1() {
+    let qtd = parseInt(prompt("Quantas pessoas deseja cadastrar?"));
+    let criancas = 0, adolescentes = 0, adultos = 0, idosos = 0;
+
+    for (let i = 0; i < qtd; i++) {
+      let idade = parseInt(prompt(`Idade da pessoa ${i + 1}:`));
+      if (idade <= 12) criancas++;
+      else if (idade <= 17) adolescentes++;
+      else if (idade <= 59) adultos++;
+      else idosos++;
+    }
+
+    alert(`Crianças: ${criancas}\nAdolescentes: ${adolescentes}\nAdultos: ${adultos}\nIdosos: ${idosos}`);
+  }
+
+  function questao2() {
+    let estoque = 100;
+    let opcao;
+
+    while (opcao !== 4) {
+      opcao = parseInt(prompt("1. Entrada\n2. Saída\n3. Verificar Estoque\n4. Sair"));
+      switch (opcao) {
+        case 1:
+          let entrada = parseInt(prompt("Quantidade a adicionar:"));
+          estoque += entrada;
+          break;
+        case 2:
+          let saida = parseInt(prompt("Quantidade a remover:"));
+          if (saida <= estoque) estoque -= saida;
+          else alert("Estoque insuficiente.");
+          break;
+        case 3:
+          alert(`Estoque atual: ${estoque}`);
+          break;
+        case 4:
+          alert("Saindo do sistema.");
+          break;
+        default:
+          alert("Opção inválida.");
+      }
+    }
+  }
+
+  function questao3() {
+    const senhaCorreta = "senai123";
+    let tentativas = 0;
+    let sucesso = false;
+
+    while (tentativas < 3) {
+      let senha = prompt("Digite a senha:");
+      if (senha === senhaCorreta) {
+        alert("Bem-vindo!");
+        sucesso = true;
+        break;
+      }
+      tentativas++;
+    }
+
+    if (!sucesso) alert("Acesso bloqueado.");
+  }
+
+  function questao4() {
+    let inicio = parseInt(prompt("Número inicial:"));
+    let fim = parseInt(prompt("Número final:"));
+    let primos = [];
+
+    for (let i = inicio; i <= fim; i++) {
+      if (i < 2) continue;
+      let ehPrimo = true;
+      for (let j = 2; j <= Math.sqrt(i); j++) {
+        if (i % j === 0) {
+          ehPrimo = false;
+          break;
+        }
+      }
+      if (ehPrimo) primos.push(i);
+    }
+
+    alert(`Números primos: ${primos.join(', ')}`);
+  }
+
+  function questao5() {
+    let fila = [];
+    let opcao;
+
+    while (opcao !== 4) {
+      opcao = parseInt(prompt("1. Adicionar\n2. Atender\n3. Ver fila\n4. Sair"));
+      switch (opcao) {
+        case 1:
+          let nome = prompt("Nome:");
+          fila.push(nome);
+          break;
+        case 2:
+          let atendido = fila.shift();
+          alert(atendido ? `Atendido: ${atendido}` : "Fila vazia.");
+          break;
+        case 3:
+          alert(`Fila: ${fila.join(', ')}`);
+          break;
+        case 4:
+          alert("Encerrando atendimento.");
+          break;
+        default:
+          alert("Opção inválida.");
+      }
+    }
+  }
+
+  function questao6() {
+    let ruim = 0, regular = 0, otimo = 0;
+
+    for (let i = 1; i <= 10; i++) {
+      let nota = parseInt(prompt(`Nota do cliente ${i} (0-10):`));
+      if (nota >= 0 && nota <= 4) ruim++;
+      else if (nota <= 7) regular++;
+      else if (nota <= 10) otimo++;
+      else {
+        alert("Nota inválida."); i--;
+      }
+    }
+
+    alert(`Ruim: ${ruim}\nRegular: ${regular}\nÓtimo: ${otimo}`);
+  }
+
+  function questao7() {
+    for (let i = 1; i <= 5; i++) {
+      let nome = prompt(`Nome do aluno ${i}:`);
+      let soma = 0;
+      for (let j = 1; j <= 3; j++) {
+        soma += parseFloat(prompt(`Nota ${j} de ${nome}:`));
+      }
+      let media = soma / 3;
+      alert(`${nome}: Média = ${media.toFixed(2)} - ${media >= 7 ? 'Aprovado' : 'Reprovado'}`);
+    }
+  }
+
+  function questao8() {
+    let vendas = [100, 250, 300, 50, 400, 700, 150];
+    let total = vendas.reduce((acc, val) => acc + val, 0);
+    let media = total / vendas.length;
+    let acima = vendas.filter(v => v > 300).length;
+
+    alert(`Total: R$${total}\nMédia: R$${media.toFixed(2)}\nDias com vendas acima de R$300: ${acima}`);
+  }
+
+  function questao9() {
+    let lista = [];
+    for (let i = 0; i < 10; i++) {
+      lista.push(parseInt(prompt(`Número ${i + 1}:`)));
+    }
+
+    let busca = parseInt(prompt("Número a buscar:"));
+    alert(lista.includes(busca) ? "Número está na lista." : "Número NÃO está na lista.");
+  }
+
+  function questao10() {
+    let valor = parseInt(prompt("Valor do saque (mínimo R$10):"));
+    if (valor < 10) {
+      alert("Valor inválido.");
+      return;
+    }
+
+    let notas100 = Math.floor(valor / 100); valor %= 100;
+    let notas50 = Math.floor(valor / 50); valor %= 50;
+    let notas20 = Math.floor(valor / 20); valor %= 20;
+    let notas10 = Math.floor(valor / 10);
+
+    alert(`Notas entregues:\n100: ${notas100}\n50: ${notas50}\n20: ${notas20}\n10: ${notas10}`);
+  }
+</script>
+
+</body>
+</html>

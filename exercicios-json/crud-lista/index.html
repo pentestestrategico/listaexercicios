@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos com JSON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Escolha um Produto</h2>
+
+    <select id="produtoSelect">
+        <option value="">-- Selecione um produto --</option>
+    </select>
+
+    <button id="adicionarBtn">Adicionar à lista</button>
+
+    <h3>Produtos Escolhidos:</h3>
+    <textarea id="listaEscolhidos" readonly></textarea>
+
+    <div class="resultado" id="totalPreco">Total Preço: R$ 0.00</div>
+    <div class="resultado" id="totalPeso">Total Peso: 0 kg</div>
+
+    <script>
+        const select = document.getElementById('produtoSelect');
+        const lista = document.getElementById('listaEscolhidos');
+        const totalPrecoEl = document.getElementById('totalPreco');
+        const totalPesoEl = document.getElementById('totalPeso');
+        let produtos = [];
+
+        let totalPreco = 0;
+        let totalPeso = 0;
+
+        //  CARREGAR PRODUTOS DO JSON EXTERNO
+        fetch('produtos.json')
+            .then(response => response.json())
+            .then(data => {
+                produtos = data;
+
+                produtos.forEach(p => {
+                    const option = document.createElement('option');
+                    option.value = p.id;
+                    option.textContent = `${p.produto} -R$ ${p.preco.toFixed(2)} ${p.peso} Kg`
+                    select.appendChild(option)
+                });
+            })
+            .catch(error => {
+                alert('Erro a carregar os produtos');
+            })
+        //adicionar a lista
+        document.getElementById('adicionarBtn').addEventListener('click', () => {
+            const idSelecionado = parseInt(select.value);
+            if (!idSelecionado) {
+                alert('Selecione um produto válido!!')
+                return;
+            }
+            const produtoSelecionado = produtos.find(p => p.id === idSelecionado)
+            //numero = [10, 30, 50, 60]
+            //numero.find(n => n > 25) = 30
+            lista.value += `${produtoSelecionado} - R$ ${produtoSelecionado.preco.toFixed(2)} = ${produtoSelecionado.peso}Kg\n`
+
+            totalPreco += produtoSelecionado.preco;
+            totalPeso += produtoSelecionado.peso;
+
+            totalPrecoEl.textContent = `Total de preço: R$ ${totalPreco.toFixed(2)}`
+            totalPesoEl.textContent = `Total peso: R$ ${totalPeso}`
+
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de IMC</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+    label, select { font-size: 16px; margin-bottom: 10px; display: block; }
+    #resultado { margin-top: 20px; font-size: 18px; background: #eef; padding: 10px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <h1>Consulta de IMC</h1>
+
+  <!-- Campo de seleção com nomes -->
+  <label for="nomes">Escolha um nome:</label>
+  <select id="nomes">
+    <option value="">Selecione...</option>
+  </select>
+
+  <!-- Resultado exibido após escolha -->
+  <div id="resultado"></div>
+
+  <script>
+    async function carregarDados(){
+        try {
+            const resposta = await fetch('pessoas.json')
+            const pessoas = await resposta.json()
+
+            const select = document.getElementById('nomes')
+
+            // preencher o select com nomes
+            pessoas.forEach(pessoa => {
+                const opcao = document.createElement(  'option')
+                opcao.value = pessoa.id;
+                opcao.textContent = pessoa.nome;
+                select.appendChild(opcao)
+            });
+            select.addEventListener('change', () => {
+            const idSelecionado = parseInt(select.value)
+            const pessoa = pessoas.find(p => p.id === idSelecionado);
+                if(pessoa){
+                const imc = (pessoa.peso / (pessoa.altura * pessoa.altura)).toFixed(2)
+                document.getElementById('resultado').innerHTML = `
+                    <strong>Nome: </strong> ${pessoa.nome}<br>
+                    <strong>Idade: </strong> ${pessoa.idade}<br>
+                    <strong>Peso: </strong> ${pessoa.peso}<br>
+                    <strong>Altura: </strong> ${pessoa.altura}<br>
+                    <strong>IMC: </strong> ${imc}<br>
+                `
+                }else{
+                    document.getElementById('resultado').textContent = ''
+                }
+                
+            })
+        } catch (error) {
+            console.log('Erro ao carregar os dados', error)
+        }
+        finally{
+            console.log('Consulta finalizada!!!')
+        }
+    }
+    carregarDados()
+  </script>
+</body>
+</html>
