@@ -1,0 +1,22 @@
+<div class="quadrado-container">
+  <button class="btn-primary" (click)="mostrarCampo = !mostrarCampo">
+    {{ mostrarCampo ? '✖ Fechar' : '🔢 Calcular Quadrado' }}
+  </button>
+
+  <div *ngIf="mostrarCampo" class="input-container">
+    <input 
+      type="number" 
+      [(ngModel)]="numero" 
+      placeholder="Digite um número" 
+      class="input-field"
+    >
+    <button class="btn-calculate" (click)="calcularQuadrado()">
+      ⚡ Calcular
+    </button>
+  </div>
+
+  <div *ngIf="resultado !== null" class="resultado-container">
+    <p class="resultado-texto">Resultado do Quadrado:</p>
+    <p class="resultado-numero">{{ resultado }}</p>
+  </div>
+</div>

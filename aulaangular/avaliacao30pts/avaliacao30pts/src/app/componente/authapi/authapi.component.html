@@ -1,0 +1,24 @@
+<div class="container">
+  <button (click)="mostrarCampo = !mostrarCampo">{{ mostrarCampo ? 'Ocultar Lista' : 'Mostrar Lista de Posts' }}</button>
+
+  <div *ngIf="mostrarCampo">
+    <button (click)="carregarPosts()" [disabled]="carregando">
+      {{ carregando ? 'Carregando...' : 'Carregar Posts da API' }}
+    </button>
+    
+    <div *ngIf="lista.length > 0" class="posts-container">
+      <h3>Posts da API ({{ lista.length }} itens)</h3>
+      
+      <div *ngFor="let post of lista" class="post-item">
+        <div class="post-header">
+          <strong>Post #{{ post.id }}</strong>
+        </div>
+        <div class="post-content">
+          <p><strong>User ID:</strong> {{ post.userId }}</p>
+          <p><strong>Título:</strong> {{ post.title }}</p>
+          <p><strong>Conteúdo:</strong> {{ post.body }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

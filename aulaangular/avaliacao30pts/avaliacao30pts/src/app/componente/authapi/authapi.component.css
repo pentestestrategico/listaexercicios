@@ -1,0 +1,172 @@
+/* Container principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos dos botões */
+button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 5px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Container dos posts */
+.posts-container {
+  margin-top: 25px;
+  max-height: 600px;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.posts-container h3 {
+  color: #343a40;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Item individual do post */
+.post-item {
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  margin: 15px 0;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border-color: #007bff;
+}
+
+/* Cabeçalho do post */
+.post-header {
+  color: #007bff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.post-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  border-radius: 1px;
+}
+
+/* Conteúdo do post */
+.post-content p {
+  margin: 12px 0;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #495057;
+}
+
+.post-content strong {
+  color: #343a40;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Estilo para o título dos posts */
+.post-content p:nth-child(2) {
+  font-size: 16px;
+  font-weight: 500;
+  color: #212529;
+}
+
+/* Estilo para o conteúdo/body dos posts */
+.post-content p:last-child {
+  font-style: italic;
+  color: #6c757d;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f3f4;
+}
+
+/* Scrollbar personalizada */
+.posts-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.posts-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.posts-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border-radius: 10px;
+}
+
+.posts-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .post-item {
+    padding: 15px;
+    margin: 10px 0;
+  }
+  
+  .post-header {
+    font-size: 18px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+h3 {
+  color: #343a40;
+  margin-bottom: 15px;
+}
