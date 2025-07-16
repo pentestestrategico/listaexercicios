@@ -266,56 +266,6 @@
   box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
 }
 
-/* Seção de estatísticas */
-.estatisticas-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  color: white;
-}
-
-.estatisticas-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.estatisticas-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-}
-
-.estatisticas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-}
-
-.estatistica-item {
-  padding: 2rem;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.estatistica-item:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.estatistica-numero {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #3498db;
-  margin-bottom: 0.5rem;
-}
-
-.estatistica-descricao {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
 /* Seção de chamada para ação */
 .cta-section {
   padding: 4rem 2rem;
@@ -434,10 +384,6 @@
   .empresa-card {
     padding: 2rem;
   }
-  
-  .estatisticas-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 480px) {
@@ -458,10 +404,6 @@
   }
   
   .valores-card ul {
-    grid-template-columns: 1fr;
-  }
-  
-  .estatisticas-grid {
     grid-template-columns: 1fr;
   }
   

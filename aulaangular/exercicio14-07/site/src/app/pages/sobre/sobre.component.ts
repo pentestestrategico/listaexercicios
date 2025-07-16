@@ -60,12 +60,6 @@ export class SobreComponent implements OnInit, OnDestroy {
       'Inovação em moda',
       'Empoderamento feminino',
       'Sustentabilidade'
-    ],
-    estatisticas: [
-      { numero: '2000+', descricao: 'Clientes Satisfeitas' },
-      { numero: '15+', descricao: 'Anos de Experiência' },
-      { numero: '500+', descricao: 'Peças Exclusivas' },
-      { numero: '98%', descricao: 'Satisfação Garantida' }
     ]
   };
 
