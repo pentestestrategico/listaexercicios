@@ -1,0 +1,18 @@
+<h2>E-mails da API </h2>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Endereço</th>
+  </tr>
+
+  <tr *ngFor="let email of email">
+    <td>{{ email.id }}</td>
+    <td>{{ email.name }}</td>
+    <td>{{ email.email }}</td>
+    <td>{{ email.address?.city }}</td>
+  </tr>
+
+
+</table>
