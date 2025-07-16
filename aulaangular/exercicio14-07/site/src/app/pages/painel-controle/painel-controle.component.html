@@ -1,0 +1,93 @@
+<div class="painel-container">
+  <!-- Cabeçalho do painel -->
+  <header class="painel-header">
+    <div class="header-content">
+      <h1>Painel de Controle</h1>
+      <div class="user-info">
+        <span>Bem-vindo, {{ usuarioLogado }}!</span>
+        <button class="btn btn-logout" (click)="logout()">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal do painel -->
+  <main class="painel-content">
+    
+    <!-- Indicador de carregamento -->
+    <div *ngIf="!dadosCarregados" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Carregando dados do painel...</p>
+    </div>
+
+    <!-- Dashboard com estatísticas -->
+    <div *ngIf="dadosCarregados" class="dashboard">
+      
+      <!-- Botão para atualizar dados -->
+      <div class="actions-bar">
+        <button class="btn btn-refresh" (click)="atualizarDados()">
+          Atualizar Dados
+        </button>
+      </div>
+
+      <!-- Cards de estatísticas -->
+      <div class="stats-grid">
+        
+        <!-- Card: Total de Usuários -->
+        <div class="stat-card users">
+          <div class="stat-icon">👥</div>
+          <div class="stat-content">
+            <h3>Total de Usuários</h3>
+            <p class="stat-number">{{ estatisticas.totalUsuarios | number }}</p>
+          </div>
+        </div>
+
+        <!-- Card: Vendas -->
+        <div class="stat-card sales">
+          <div class="stat-icon">💰</div>
+          <div class="stat-content">
+            <h3>Vendas (R$)</h3>
+            <p class="stat-number">{{ estatisticas.vendas | currency:'BRL':'symbol':'1.0-0' }}</p>
+          </div>
+        </div>
+
+        <!-- Card: Pedidos Pendentes -->
+        <div class="stat-card orders">
+          <div class="stat-icon">📦</div>
+          <div class="stat-content">
+            <h3>Pedidos Pendentes</h3>
+            <p class="stat-number">{{ estatisticas.pedidosPendentes }}</p>
+          </div>
+        </div>
+
+        <!-- Card: Produtos Cadastrados -->
+        <div class="stat-card products">
+          <div class="stat-icon">📝</div>
+          <div class="stat-content">
+            <h3>Produtos Cadastrados</h3>
+            <p class="stat-number">{{ estatisticas.produtosCadastrados }}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Seção de informações adicionais -->
+      <div class="info-section">
+        <h2>Área Restrita - Acesso Autorizado</h2>
+        <p>Esta é uma área protegida que só pode ser acessada por usuários autenticados.</p>
+        <p>Você está vendo este conteúdo porque fez login com sucesso no sistema.</p>
+        
+        <div class="feature-list">
+          <h3>Funcionalidades Disponíveis:</h3>
+          <ul>
+            <li>✅ Dashboard com estatísticas em tempo real</li>
+            <li>✅ Controle de acesso via guard de rota</li>
+            <li>✅ Sistema de autenticação seguro</li>
+            <li>✅ Atualização dinâmica de dados</li>
+            <li>✅ Interface responsiva e moderna</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

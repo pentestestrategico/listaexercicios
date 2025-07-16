@@ -1,59 +1,174 @@
-# AppService
+# 🧮 Calculadora Angular 19
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Um projeto de estudo desenvolvido em Angular 19 que demonstra o uso de **Services** e **Dependency Injection** através de duas calculadoras simples: uma calculadora de IMC (Índice de Massa Corporal) e uma calculadora de quadrado de números.
 
-## Development server
+## 📋 Sobre o Projeto
 
-To start a local development server, run:
+Este exercício prático foi desenvolvido para demonstrar conceitos fundamentais do Angular, focando especialmente em:
 
-```bash
-ng serve
+- **Services**: Implementação de lógica de negócio em serviços reutilizáveis
+- **Dependency Injection**: Injeção de dependências nos componentes
+- **Two-way Data Binding**: Uso do ngModel para vinculação bidirecional de dados
+- **Componentização**: Estruturação da aplicação em componentes modulares
+- **Standalone Components**: Utilização dos novos componentes standalone do Angular 19
+
+## 🚀 Funcionalidades
+
+### 📊 Calculadora de IMC
+- Calcula o Índice de Massa Corporal
+- Recebe peso (kg) e altura (m) como entrada
+- Exibe o resultado formatado com duas casas decimais
+- Utiliza o serviço `ServiceImcService` para realizar o cálculo
+
+### 🔢 Calculadora de Quadrado
+- Calcula o quadrado de um número
+- Recebe um número como entrada
+- Exibe o resultado da operação
+- Utiliza o serviço `ServiceQuadradoService` para realizar o cálculo
+
+## 🛠️ Tecnologias Utilizadas
+
+### Frontend Framework
+- **Angular 19.2.0** - Framework principal
+- **TypeScript 5.7.2** - Linguagem de programação
+- **HTML5** - Estruturação das páginas
+- **CSS3** - Estilização dos componentes
+
+### Angular Modules & Features
+- **@angular/core** - Funcionalidades core do Angular
+- **@angular/common** - Módulos comuns (CommonModule)
+- **@angular/forms** - FormsModule para two-way data binding
+- **@angular/router** - Sistema de roteamento
+- **Standalone Components** - Nova arquitetura de componentes
+
+### Ferramentas de Desenvolvimento
+- **Angular CLI 19.2.15** - Interface de linha de comando
+- **Node.js** - Ambiente de execução
+- **npm** - Gerenciador de pacotes
+
+### Testes
+- **Jasmine 5.6.0** - Framework de testes
+- **Karma 6.4.0** - Test runner
+- **TypeScript** - Tipagem estática
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── app.component.html          # Template principal
+│   ├── app.component.ts            # Componente principal
+│   ├── app.component.css           # Estilos globais
+│   ├── app.config.ts               # Configurações da aplicação
+│   ├── app.routes.ts               # Configuração de rotas
+│   └── app/
+│       ├── imc/
+│       │   ├── imc.component.ts    # Componente da calculadora IMC
+│       │   ├── imc.component.html  # Template da calculadora IMC
+│       │   └── imc.component.css   # Estilos da calculadora IMC
+│       ├── quadrado/
+│       │   ├── quadrado.component.ts    # Componente da calculadora quadrado
+│       │   ├── quadrado.component.html  # Template da calculadora quadrado
+│       │   └── quadrado.component.css   # Estilos da calculadora quadrado
+│       └── services/
+│           ├── service-imc.service.ts       # Serviço para cálculo de IMC
+│           └── service-quadrado.service.ts  # Serviço para cálculo de quadrado
+├── index.html                      # Página principal
+├── main.ts                         # Ponto de entrada da aplicação
+└── styles.css                      # Estilos globais
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Como Executar
 
-## Code scaffolding
+### Pré-requisitos
+- Node.js (versão 18 ou superior)
+- npm (geralmente instalado com o Node.js)
+- Angular CLI
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Instalação e Execução
 
-```bash
-ng generate component component-name
-```
+1. **Clone o repositório ou navegue até o diretório do projeto:**
+   ```bash
+   cd app-service
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate --help
-```
+3. **Execute o servidor de desenvolvimento:**
+   ```bash
+   npm start
+   # ou
+   ng serve
+   ```
 
-## Building
+4. **Acesse a aplicação:**
+   Abra seu navegador e acesse `http://localhost:4200`
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Scripts Disponíveis
 
 ```bash
-ng e2e
+npm start          # Inicia o servidor de desenvolvimento
+npm run build      # Gera build de produção
+npm run watch      # Build em modo watch para desenvolvimento
+npm test           # Executa os testes unitários
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 💡 Conceitos Demonstrados
 
-## Additional Resources
+### Services e Dependency Injection
+```typescript
+// Exemplo de Service
+@Injectable({
+  providedIn: 'root'
+})
+export class ServiceImcService {
+  caculateImc(peso: number, altura: number) {
+    return peso / (altura * altura);
+  }
+}
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+// Injeção no Component
+constructor(private imcServico: ServiceImcService) {}
+```
+
+### Two-way Data Binding
+```html
+<input type="number" [(ngModel)]="peso" />
+```
+
+### Standalone Components
+```typescript
+@Component({
+  selector: 'app-imc',
+  imports: [CommonModule, FormsModule],
+  templateUrl: './imc.component.html',
+  styleUrl: './imc.component.css'
+})
+```
+
+## 🎯 Objetivos de Aprendizado
+
+Este projeto foi desenvolvido para praticar e demonstrar:
+
+- ✅ Criação e uso de Services em Angular
+- ✅ Implementação de Dependency Injection
+- ✅ Uso do FormsModule e two-way data binding
+- ✅ Componentização e reutilização de código
+- ✅ Estruturação de projetos Angular
+- ✅ Standalone Components (Angular 19)
+- ✅ Boas práticas de desenvolvimento
+
+## 🤝 Contribuições
+
+Este é um projeto de estudo. Sugestões e melhorias são sempre bem-vindas!
+
+## 📄 Licença
+
+Este projeto é para fins educacionais e de aprendizado.
+
+---
+
+**Desenvolvido com ❤️ usando Angular 19**

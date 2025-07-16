@@ -1,0 +1,187 @@
+/* Container principal do formulário de login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Card do formulário */
+.login-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Título do formulário */
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Alerta de erro */
+.error-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Grupo de campos do formulário */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Labels dos campos */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Campos de input */
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Estado de foco dos inputs */
+.form-control:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Estado inválido dos inputs */
+.form-control.ng-invalid.ng-touched {
+  border-color: #e74c3c;
+}
+
+/* Estado desabilitado dos inputs */
+.form-control:disabled {
+  background-color: #f8f9fa;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mensagens de erro de validação */
+.error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Container dos botões */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Estilo base dos botões */
+.btn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Botão primário (Entrar) */
+.btn-primary {
+  background-color: #667eea;
+  color: white;
+}
+
+/* Hover do botão primário */
+.btn-primary:hover:not(:disabled) {
+  background-color: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+/* Estado desabilitado do botão primário */
+.btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botão secundário (Limpar) */
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Hover do botão secundário */
+.btn-secondary:hover:not(:disabled) {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* Estado desabilitado do botão secundário */
+.btn-secondary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Dica de login */
+.login-hint {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #e7f3ff;
+  border-radius: 5px;
+  border-left: 4px solid #007bff;
+  text-align: center;
+}
+
+/* Texto da dica */
+.login-hint p {
+  margin: 0;
+  color: #0056b3;
+  font-size: 0.875rem;
+}
+
+/* Código destacado na dica */
+.login-hint code {
+  background-color: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  color: #e83e8c;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem;
+    min-height: 70vh;
+  }
+  
+  .login-form {
+    padding: 1.5rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}

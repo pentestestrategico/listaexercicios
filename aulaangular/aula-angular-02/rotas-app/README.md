@@ -1,6 +1,32 @@
-# RotasApp
+# Rotas App - Exercício Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Este projeto é um exercício prático de Angular, desenvolvido para treinar conceitos fundamentais do framework, como componentes, serviços, rotas e manipulação de estado.
+
+## Sobre o Projeto
+
+O objetivo do projeto é criar uma aplicação de contador com diferentes abordagens:
+- Contador simples (imutável e mutável)
+- Contador utilizando serviços para compartilhamento de estado
+- Demonstração de componentes independentes
+
+A aplicação permite incrementar, decrementar e zerar o valor do contador, mostrando como o Angular gerencia dados e interações entre componentes.
+
+## Tecnologias Utilizadas
+
+- **Angular** (v16+)
+- **TypeScript**
+- **HTML5**
+- **CSS3**
+
+## Estrutura do Projeto
+
+- `src/app/componente/contador01` — Contador simples
+- `src/app/componente/contador02` — Contador com abordagem imutável/mutável
+- `src/app/componente/contador03` — Outro exemplo de contador
+- `src/app/componente/contador04` — Contador utilizando serviço compartilhado
+- `src/app/contador.service.ts` — Serviço para gerenciamento do estado do contador
+
+---
 
 ## Development server
 

@@ -1,0 +1,26 @@
+<div class="form-container">
+  <h2>Formulário de Cadastro</h2>
+    <form [formGroup]="cadastroForm" (ngSubmit)="enviarCadastro()"> 
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" formControlName="nome">
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" formControlName="email">
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" formControlName="senha">
+        
+        <label for="confirmarSenha">Confirmar Senha</label>
+        <input type="password" id="confirmarSenha" formControlName="confirmarSenha">
+
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input type="date" id="dataNascimento" formControlName="dataNascimento">
+       
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" formControlName="telefone">
+
+        <button type="submit">Enviar</button>
+
+
+
+    </form>
