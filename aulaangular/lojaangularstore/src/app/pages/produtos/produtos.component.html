@@ -1,0 +1,16 @@
+<div class="produtos-container">
+  <div class="card-grid">
+    <div class="card" *ngFor="let f of fotos">
+      <img [src]="f.imagem" class="card-image" [alt]="f.nome" />
+      <div class="card-content">
+        <div class="card-info">
+          <h3 class="card-title">{{f.nome}}</h3>
+          <p class="card-description">{{f.descricao}}</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-comprar">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

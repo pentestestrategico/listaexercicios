@@ -1,0 +1,224 @@
+nav {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #cc0000 100%);
+    padding: 1.5rem 0;
+    border-bottom: 3px solid #cc0000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="30" r="1.5" fill="rgba(204,0,0,0.3)"/><circle cx="40" cy="70" r="1.5" fill="rgba(204,0,0,0.3)"/></svg>');
+    pointer-events: none;
+}
+
+.menu-horizontal {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-horizontal li {
+    display: inline-block;
+    animation: slideInFromTop 0.6s ease forwards;
+    isolation: isolate;
+    position: relative;
+    z-index: 1;
+    contain: layout style;
+}
+
+.menu-horizontal li:hover {
+    z-index: 10;
+}
+
+.menu-horizontal li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.menu-horizontal li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.menu-horizontal li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.menu-horizontal a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    font-family: 'Arial Black', Arial, sans-serif;
+    overflow: hidden;
+    animation: breathe 4s ease-in-out infinite;
+    border-image: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent) 1;
+    border-image-slice: 1;
+}
+
+.menu-horizontal a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.menu-horizontal a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.menu-horizontal a:hover {
+    background: linear-gradient(45deg, #cc0000, #ff3333, #cc0000, #ff1a1a);
+    background-size: 400% 400%;
+    animation: wave 2s ease infinite, pulse 1.5s infinite;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.05);
+    border-color: #ffffff;
+    box-shadow: 
+        0 8px 25px rgba(204, 0, 0, 0.6),
+        0 4px 12px rgba(255, 51, 51, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 5;
+}
+
+.menu-horizontal a:hover::before {
+    left: 100%;
+}
+
+.menu-horizontal a:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+.menu-horizontal a:active {
+    transform: translateY(-2px) scale(1.02);
+    transition: all 0.1s ease;
+}
+
+/* Animação de pulsação sutil */
+@keyframes pulse {
+    0% { 
+        box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+    }
+    50% { 
+        box-shadow: 0 0 0 8px rgba(204, 0, 0, 0.1);
+    }
+    100% { 
+        box-shadow: 0 0 0 0 rgba(204, 0, 0, 0);
+    }
+}
+
+/* Animação de entrada para os itens do menu */
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Efeito de "respiro" sutil nos botões */
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Efeito de borda brilhante */
+/* Efeito de ondulação no fundo */
+@keyframes wave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem 0;
+    }
+    
+    .menu-horizontal {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .menu-horizontal a {
+        display: block;
+        text-align: center;
+        width: 200px;
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* Adicionar título da loja no header */
+.header-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Arial Black', Arial, sans-serif;
+}
+
+.header-subtitle {
+    text-align: center;
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}

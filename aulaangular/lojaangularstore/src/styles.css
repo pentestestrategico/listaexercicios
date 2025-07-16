@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Global styles for footer positioning */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  padding-bottom: 280px; /* Aumentado para dar mais espaço ao footer */
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Garantir que o conteúdo principal tenha espaço adequado */
+main, .main-content {
+  min-height: calc(100vh - 280px);
+  padding-bottom: 3rem;
+}
+
+/* Classe específica para páginas de produtos */
+.produtos-page {
+  padding-bottom: 4rem;
+}

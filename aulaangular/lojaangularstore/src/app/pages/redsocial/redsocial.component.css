@@ -1,0 +1,366 @@
+.redes-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  min-height: calc(100vh - 200px);
+}
+
+.redes-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.redes-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.redes-header p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.redes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.rede-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.rede-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(45deg, #cc0000, #ff3333);
+}
+
+.rede-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.rede-card.facebook::before {
+  background: linear-gradient(45deg, #1877f2, #42a5f5);
+}
+
+.rede-card.instagram::before {
+  background: linear-gradient(45deg, #e4405f, #f77737, #fcb045);
+}
+
+.rede-card.youtube::before {
+  background: linear-gradient(45deg, #ff0000, #ff4444);
+}
+
+.rede-card.whatsapp::before {
+  background: linear-gradient(45deg, #25d366, #4fc85b);
+}
+
+.rede-card.telegram::before {
+  background: linear-gradient(45deg, #0088cc, #33a8db);
+}
+
+.rede-card.tiktok::before {
+  background: linear-gradient(45deg, #000000, #ff0050, #00f2ea);
+}
+
+.rede-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+}
+
+.rede-icon i {
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Cores específicas para cada rede social */
+.facebook .rede-icon i {
+  color: #1877f2;
+}
+
+.instagram .rede-icon i {
+  color: #e4405f;
+}
+
+.youtube .rede-icon i {
+  color: #ff0000;
+}
+
+.whatsapp .rede-icon i {
+  color: #25d366;
+}
+
+.telegram .rede-icon i {
+  color: #0088cc;
+}
+
+.tiktok .rede-icon i {
+  color: #000000;
+}
+
+.rede-card:hover .rede-icon i {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.rede-card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.rede-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.rede-stats {
+  background: #f8f9fa;
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.btn-seguir {
+  background: linear-gradient(45deg, #cc0000, #ff3333);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-seguir:hover {
+  background: linear-gradient(45deg, #ff3333, #cc0000);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(204, 0, 0, 0.3);
+}
+
+.newsletter-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 3rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.newsletter-section h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.newsletter-section p {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  background: linear-gradient(45deg, #cc0000, #ff3333);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: linear-gradient(45deg, #ff3333, #cc0000);
+}
+
+.compartilhar-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.compartilhar-section h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.compartilhar-section p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.compartilhar-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-compartilhar {
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-compartilhar i {
+  font-size: 1.2rem;
+}
+
+.btn-compartilhar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-compartilhar.facebook-share:hover {
+  background: #1877f2;
+  color: white;
+  border-color: #1877f2;
+}
+
+.btn-compartilhar.whatsapp-share:hover {
+  background: #25d366;
+  color: white;
+  border-color: #25d366;
+}
+
+.btn-compartilhar.telegram-share:hover {
+  background: #0088cc;
+  color: white;
+  border-color: #0088cc;
+}
+
+.hashtags-section {
+  text-align: center;
+}
+
+.hashtags-section h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hashtag {
+  background: linear-gradient(45deg, #cc0000, #ff3333);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hashtag:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(204, 0, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .redes-container {
+    padding: 1rem;
+  }
+
+  .redes-header h1 {
+    font-size: 2rem;
+  }
+
+  .redes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .compartilhar-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hashtags {
+    justify-content: center;
+  }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rede-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.rede-card:nth-child(1) { animation-delay: 0.1s; }
+.rede-card:nth-child(2) { animation-delay: 0.2s; }
+.rede-card:nth-child(3) { animation-delay: 0.3s; }
+.rede-card:nth-child(4) { animation-delay: 0.4s; }
+.rede-card:nth-child(5) { animation-delay: 0.5s; }
+.rede-card:nth-child(6) { animation-delay: 0.6s; }
