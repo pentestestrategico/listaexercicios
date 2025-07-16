@@ -8,24 +8,37 @@ import { PainelControleComponent } from './pages/painel-controle/painel-controle
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  // Rota para a página inicial
-  { path: '', component: HomeComponent },
-  
-  // Rotas das páginas públicas
-  { path: 'sobre', component: SobreComponent },
-  { path: 'servico', component: ServicoComponent },
-  { path: 'contato', component: ContatoComponent },
-  
-  // Rota para o formulário de login (página pública)
+  // Rota para o formulário de login (página inicial)
+  { path: '', component: PainelComponentComponent },
   { path: 'painel', component: PainelComponentComponent },
   
-  // Rota protegida - só acessível com autenticação
+  // Todas as rotas protegidas - só acessíveis com autenticação
+  { 
+    path: 'home', 
+    component: HomeComponent,
+    canActivate: [authGuard] // Guard que protege esta rota
+  },
+  { 
+    path: 'sobre', 
+    component: SobreComponent,
+    canActivate: [authGuard] // Guard que protege esta rota
+  },
+  { 
+    path: 'servico', 
+    component: ServicoComponent,
+    canActivate: [authGuard] // Guard que protege esta rota
+  },
+  { 
+    path: 'contato', 
+    component: ContatoComponent,
+    canActivate: [authGuard] // Guard que protege esta rota
+  },
   { 
     path: 'painel-controle', 
     component: PainelControleComponent,
     canActivate: [authGuard] // Guard que protege esta rota
   },
   
-  // Rota padrão - redireciona para home se a rota não existir
+  // Rota padrão - redireciona para login se a rota não existir
   { path: '**', redirectTo: '' }
  ];

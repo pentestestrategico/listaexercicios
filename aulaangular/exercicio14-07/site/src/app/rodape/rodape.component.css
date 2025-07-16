@@ -1,0 +1,287 @@
+/* Rodapé principal */
+.rodape {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: #ecf0f1;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container do rodapé */
+.rodape-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0.5rem;
+}
+
+/* Conteúdo principal */
+.rodape-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Seções do rodapé */
+.rodape-section h3,
+.rodape-section h4 {
+  margin-bottom: 1rem;
+  color: #3498db;
+  font-weight: 600;
+}
+
+.rodape-section h3 {
+  font-size: 1.3rem;
+}
+
+.rodape-section h4 {
+  font-size: 1.1rem;
+}
+
+/* Informações da empresa */
+.empresa-info .empresa-descricao {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
+
+.contato-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contato-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.contato-item .icone {
+  font-size: 1rem;
+  width: 1.2rem;
+}
+
+/* Links úteis */
+.links-uteis ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-uteis li {
+  margin-bottom: 0.5rem;
+}
+
+.links-uteis a {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.links-uteis a:hover {
+  color: #3498db;
+  padding-left: 0.5rem;
+}
+
+.links-uteis a:before {
+  content: '→';
+  position: absolute;
+  left: -1rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.links-uteis a:hover:before {
+  opacity: 1;
+  left: -0.75rem;
+}
+
+/* Redes sociais */
+.redes-sociais p {
+  color: #bdc3c7;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(52, 152, 219, 0.1);
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  color: #ecf0f1;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  background: rgba(52, 152, 219, 0.2);
+  border-color: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+}
+
+.social-icon {
+  font-size: 1rem;
+}
+
+.social-name {
+  font-weight: 500;
+}
+
+/* Newsletter */
+.newsletter p {
+  color: #bdc3c7;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ecf0f1;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(236, 240, 241, 0.6);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #3498db;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.newsletter-btn {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Linha divisória */
+.rodape-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.5), transparent);
+  margin: 1.5rem 0 1rem;
+}
+
+/* Rodapé inferior */
+.rodape-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright p,
+.powered-by p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #95a5a6;
+}
+
+.powered-by p {
+  font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 968px) {
+  .rodape-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .rodape-container {
+    padding: 1.5rem 1rem 0.5rem;
+  }
+  
+  .rodape-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .rodape-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .social-btn {
+    flex: 1;
+    justify-content: center;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rodape-container {
+    padding: 1rem 0.8rem 0.3rem;
+  }
+  
+  .social-btn {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .social-btn .social-name {
+    display: none;
+  }
+  
+  .contato-item {
+    font-size: 0.8rem;
+  }
+  
+  .empresa-info .empresa-descricao {
+    font-size: 0.85rem;
+  }
+}

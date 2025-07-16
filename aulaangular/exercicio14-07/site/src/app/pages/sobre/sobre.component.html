@@ -1,1 +1,127 @@
-<p>sobre works!</p>
+<div class="sobre-container">
+  
+  <!-- Seção do carrossel -->
+  <section class="carrossel-section">
+    <div class="carrossel-container">
+      
+      <!-- Slides -->
+      <div class="carrossel-wrapper">
+        <div 
+          class="slide"
+          *ngFor="let slide of slides; let i = index"
+          [class.ativo]="i === slideAtual"
+          [style.background-color]="slide.cor">
+          
+          <div class="slide-content">
+            <div class="slide-image">
+              <img [src]="slide.imagem" [alt]="slide.titulo">
+            </div>
+            
+            <div class="slide-info">
+              <h2>{{ slide.titulo }}</h2>
+              <p>{{ slide.descricao }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles do carrossel -->
+      <div class="carrossel-controls">
+        <button class="control-btn prev" (click)="slideAnterior()">
+          &#8249;
+        </button>
+        <button class="control-btn next" (click)="proximoSlide()">
+          &#8250;
+        </button>
+      </div>
+
+      <!-- Indicadores -->
+      <div class="carrossel-indicators">
+        <button 
+          *ngFor="let slide of slides; let i = index"
+          class="indicator"
+          [class.ativo]="i === slideAtual"
+          (click)="irParaSlide(i)">
+        </button>
+      </div>
+
+      <!-- Controle de autoplay -->
+      <div class="autoplay-control">
+        <button class="autoplay-btn" (click)="toggleAutoPlay()">
+          {{ autoPlayAtivo ? '⏸️' : '▶️' }}
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Seção sobre a empresa -->
+  <section class="empresa-section">
+    <div class="empresa-container">
+      
+      <!-- Cabeçalho -->
+      <div class="empresa-header">
+        <h1>Sobre a {{ empresa.nome }}</h1>
+        <p>Conheça nossa paixão pela moda feminina e nossa dedicação em realçar a beleza de cada mulher.</p>
+      </div>
+
+      <!-- Missão, Visão e Valores -->
+      <div class="empresa-content">
+        
+        <div class="empresa-card">
+          <div class="card-icon">🎯</div>
+          <h3>Nossa Missão</h3>
+          <p>{{ empresa.missao }}</p>
+        </div>
+
+        <div class="empresa-card">
+          <div class="card-icon">🔮</div>
+          <h3>Nossa Visão</h3>
+          <p>{{ empresa.visao }}</p>
+        </div>
+
+        <div class="empresa-card valores-card">
+          <div class="card-icon">💎</div>
+          <h3>Nossos Valores</h3>
+          <ul>
+            <li *ngFor="let valor of empresa.valores">{{ valor }}</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Seção de estatísticas -->
+  <section class="estatisticas-section">
+    <div class="estatisticas-container">
+      
+      <h2>Nossos Números</h2>
+      
+      <div class="estatisticas-grid">
+        <div 
+          class="estatistica-item"
+          *ngFor="let stat of empresa.estatisticas">
+          
+          <div class="estatistica-numero">{{ stat.numero }}</div>
+          <div class="estatistica-descricao">{{ stat.descricao }}</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Seção de chamada para ação -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>Pronta para Renovar seu Guarda-Roupa?</h2>
+      <p>Entre em contato conosco e descubra como podemos ajudar você a criar looks incríveis que expressam sua personalidade.</p>
+      <div class="cta-buttons">
+        <a href="/contato" class="btn btn-primary">Fale Conosco</a>
+        <a href="/servico" class="btn btn-secondary">Nossos Serviços</a>
+      </div>
+    </div>
+  </section>
+
+</div>

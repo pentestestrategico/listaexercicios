@@ -19,8 +19,8 @@ export const authGuard: CanActivateFn = (route, state) => {
     // Permite o acesso à rota
     return true;
   } else {
-    // Redireciona para a página de login se não estiver autenticado
-    router.navigate(['/painel']);
+    // Redireciona para a página de login (página inicial) se não estiver autenticado
+    router.navigate(['']);
     return false;
   }
 };

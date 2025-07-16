@@ -1,0 +1,286 @@
+/* Container principal */
+.servicos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  min-height: calc(100vh - 200px);
+}
+
+/* Cabeçalho da página */
+.servicos-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.servicos-header h1 {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.servicos-header p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid de serviços */
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+/* Cards de serviço */
+.servico-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.servico-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.servico-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.servico-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Ícones dos serviços */
+.servico-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* Títulos dos serviços */
+.servico-card h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Descrição dos serviços */
+.servico-card p {
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+/* Lista de itens do serviço */
+.servico-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.servico-card li {
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.servico-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+/* Seção de atendimento */
+.atendimento-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  margin-bottom: 4rem;
+}
+
+.atendimento-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+/* Steps do processo */
+.processo-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+}
+
+.step h4 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.step p {
+  color: #7f8c8d;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Call to action */
+.cta-servicos {
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.cta-servicos h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.cta-servicos p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.btn-agendar {
+  background: white;
+  color: #e91e63;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-agendar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: #f8f9fa;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .servicos-container {
+    padding: 2rem 1rem;
+  }
+  
+  .servicos-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .servicos-header p {
+    font-size: 1.1rem;
+  }
+  
+  .servicos-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .servico-card {
+    padding: 2rem;
+  }
+  
+  .atendimento-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .atendimento-section h2 {
+    font-size: 2rem;
+  }
+  
+  .processo-steps {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cta-servicos {
+    padding: 3rem 1.5rem;
+  }
+  
+  .cta-servicos h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicos-header h1 {
+    font-size: 2rem;
+  }
+  
+  .servico-icon {
+    font-size: 3rem;
+  }
+  
+  .servico-card {
+    padding: 1.5rem;
+  }
+  
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .cta-servicos h2 {
+    font-size: 1.8rem;
+  }
+  
+  .btn-agendar {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}

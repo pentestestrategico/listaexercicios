@@ -1,0 +1,4 @@
+# Placeholder para screenshot da página de contato
+# Substitua este arquivo pela captura de tela real da página de contato
+# Tamanho recomendado: 1200x800 pixels
+# Formato: PNG

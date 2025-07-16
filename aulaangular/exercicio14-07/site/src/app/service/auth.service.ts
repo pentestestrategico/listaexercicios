@@ -14,8 +14,12 @@ export class AuthService {
   constructor() {
     // Verifica se existe um token de autenticação no localStorage ao inicializar
     const token = localStorage.getItem('authToken');
-    if (token) {
+    if (token === 'authenticated') {
       this.isAuthenticatedSubject.next(true);
+    } else {
+      // Remove token inválido se existir
+      localStorage.removeItem('authToken');
+      this.isAuthenticatedSubject.next(false);
     }
   }
 
@@ -27,7 +31,7 @@ export class AuthService {
    */
   validarCredenciais(login: string, senha: string): boolean {
     // Valida se as credenciais correspondem ao usuário padrão
-    return login === 'adm' && senha === '123';
+    return login === 'admin' && senha === '123';
   }
 
   /**
@@ -56,6 +60,8 @@ export class AuthService {
     localStorage.removeItem('authToken');
     // Atualiza o estado de autenticação para false
     this.isAuthenticatedSubject.next(false);
+    // Limpa qualquer cache adicional se necessário
+    localStorage.clear();
   }
 
   /**

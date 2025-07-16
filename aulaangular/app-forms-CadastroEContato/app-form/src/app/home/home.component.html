@@ -1,0 +1,33 @@
+<div class="home-container">
+  <div class="welcome-section">
+    <h1>Exercicio de formulario</h1>
+    <p>Escolha uma das opções abaixo para prosseguir:</p>
+  </div>
+
+  <div class="cards-container">
+    <div class="card" (click)="navegarPara('/cadastro')">
+      <div class="card-icon">👤</div>
+      <h3>Formulário de Cadastro</h3>
+      <p>Registre-se preenchendo seus dados pessoais</p>
+      <ul>
+        <li>Nome completo</li>
+        <li>Email e senha</li>
+        <li>Data de nascimento</li>
+        <li>Telefone</li>
+      </ul>
+      <button class="card-button">Fazer Cadastro</button>
+    </div>
+
+    <div class="card" (click)="navegarPara('/contato')">
+      <div class="card-icon">📧</div>
+      <h3>Formulário de Contato</h3>
+      <p>Entre em contato conosco enviando uma mensagem</p>
+      <ul>
+        <li>Nome</li>
+        <li>Email</li>
+        <li>Assunto da mensagem</li>
+      </ul>
+      <button class="card-button">Enviar Mensagem</button>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 <div class="login-container">
   <div class="login-form">
-    <h2>Painel de Login</h2>
+    <h2>Bem-vinda à Loja Estilo Feminino</h2>
+    <p class="welcome-message">Faça login para acessar nossa coleção exclusiva de moda feminina</p>
     
     <!-- Mensagem de erro -->
     <div *ngIf="mensagemErro" class="error-alert">
@@ -16,7 +17,7 @@
           name="login"
           [(ngModel)]="login"
           required
-          placeholder="Digite: adm"
+          placeholder="Digite: admin"
           class="form-control"
           [disabled]="carregando"
           #loginInput="ngModel">
@@ -61,7 +62,7 @@
     </form>
 
     <div class="login-hint">
-      <p><strong>Dica:</strong> Use login: <code>adm</code> e senha: <code>123</code></p>
+      <p><strong>Dica:</strong> Use login: <code>admin</code> e senha: <code>123</code></p>
     </div>
   </div>
 </div>

@@ -1,0 +1,86 @@
+<footer class="rodape">
+  <div class="rodape-container">
+    
+    <!-- Seção principal do rodapé -->
+    <div class="rodape-content">
+      
+      <!-- Informações da empresa -->
+      <div class="rodape-section empresa-info">
+        <h3>{{ empresa.nome }}</h3>
+        <p class="empresa-descricao">{{ empresa.descricao }}</p>
+        
+        <div class="contato-info">
+          <div class="contato-item">
+            <span class="icone">📧</span>
+            <span>{{ empresa.email }}</span>
+          </div>
+          <div class="contato-item">
+            <span class="icone">📱</span>
+            <span>{{ empresa.telefone }}</span>
+          </div>
+          <div class="contato-item">
+            <span class="icone">📍</span>
+            <span>{{ empresa.endereco }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links úteis -->
+      <div class="rodape-section links-uteis">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li *ngFor="let link of linksUteis">
+            <a [href]="link.url">{{ link.nome }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Redes sociais -->
+      <div class="rodape-section redes-sociais">
+        <h4>Siga-nos</h4>
+        <p>Conecte-se conosco nas redes sociais para ficar por dentro das novidades!</p>
+        
+        <div class="social-icons">
+          <button 
+            *ngFor="let rede of redesSociais" 
+            class="social-btn"
+            (click)="abrirRedeSocial(rede.url)"
+            [title]="rede.nome">
+            <span class="social-icon">{{ rede.icone }}</span>
+            <span class="social-name">{{ rede.nome }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="rodape-section newsletter">
+        <h4>Newsletter</h4>
+        <p>Receba as últimas tendências da moda e promoções exclusivas diretamente em seu e-mail.</p>
+        
+        <div class="newsletter-form">
+          <input 
+            type="email" 
+            placeholder="Seu e-mail"
+            class="newsletter-input">
+          <button class="newsletter-btn">Inscrever</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Linha divisória -->
+    <div class="rodape-divider"></div>
+
+    <!-- Rodapé inferior -->
+    <div class="rodape-bottom">
+      <div class="copyright">
+        <p>&copy; {{ anoAtual }} {{ empresa.nome }}. Todos os direitos reservados.</p>
+      </div>
+      
+      <div class="powered-by">
+        <p>Desenvolvido pelo SGT F.Leite</p>
+      </div>
+    </div>
+
+  </div>
+</footer>

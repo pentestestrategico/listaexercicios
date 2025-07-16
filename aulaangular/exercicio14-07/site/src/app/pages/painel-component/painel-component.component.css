@@ -21,9 +21,17 @@
 /* Título do formulário */
 .login-form h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: #333;
   font-weight: 600;
+}
+
+/* Mensagem de boas-vindas */
+.welcome-message {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
 }
 
 /* Alerta de erro */

@@ -1,0 +1,4 @@
+# Placeholder para screenshot da página de serviços
+# Substitua este arquivo pela captura de tela real da página de serviços
+# Tamanho recomendado: 1200x800 pixels
+# Formato: PNG

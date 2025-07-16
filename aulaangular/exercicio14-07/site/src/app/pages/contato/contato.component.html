@@ -1,1 +1,162 @@
-<p>contato works!</p>
+<div class="contato-container">
+  <div class="contato-header">
+    <h1>Entre em Contato</h1>
+    <p>Tem alguma dúvida sobre nossas peças ou precisa de uma consultoria de estilo? Fale conosco!</p>
+  </div>
+
+  <div class="contato-content">
+    <!-- Informações de contato -->
+    <div class="contato-info">
+      <h3>Nossos Contatos</h3>
+      <div class="info-item">
+        <i class="icon">📧</i>
+        <span>contato&#64;lojaestilofeminino.com</span>
+      </div>
+      <div class="info-item">
+        <i class="icon">📱</i>
+        <span>(21) 99999-9999</span>
+      </div>
+      <div class="info-item">
+        <i class="icon">📍</i>
+        <span>Rio de Janeiro, RJ - Brasil</span>
+      </div>
+      <div class="info-item">
+        <i class="icon">🕒</i>
+        <span>Segunda à Sexta: 9h às 19h | Sábado: 9h às 17h</span>
+      </div>
+    </div>
+
+    <!-- Formulário de contato -->
+    <div class="contato-form">
+      <h3>Envie sua Mensagem</h3>
+      
+      <!-- Mensagem de sucesso -->
+      <div *ngIf="mensagemSucesso" class="alert alert-success">
+        {{ mensagemSucesso }}
+      </div>
+
+      <!-- Mensagem de erro -->
+      <div *ngIf="mensagemErro" class="alert alert-error">
+        {{ mensagemErro }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #contatoForm="ngForm" *ngIf="!formularioEnviado">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input 
+              type="text" 
+              id="nome" 
+              name="nome"
+              [(ngModel)]="contato.nome"
+              required
+              placeholder="Seu nome completo"
+              class="form-control"
+              [disabled]="enviando"
+              #nomeInput="ngModel">
+            <div *ngIf="nomeInput.invalid && nomeInput.touched" class="error-message">
+              Nome é obrigatório
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              [(ngModel)]="contato.email"
+              required
+              email
+              placeholder="seu@email.com"
+              class="form-control"
+              [disabled]="enviando"
+              #emailInput="ngModel">
+            <div *ngIf="emailInput.invalid && emailInput.touched" class="error-message">
+              <span *ngIf="emailInput.errors?.['required']">Email é obrigatório</span>
+              <span *ngIf="emailInput.errors?.['email']">Email deve ter um formato válido</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input 
+              type="tel" 
+              id="telefone" 
+              name="telefone"
+              [(ngModel)]="contato.telefone"
+              placeholder="(21) 99999-9999"
+              class="form-control"
+              [disabled]="enviando">
+          </div>
+
+          <div class="form-group">
+            <label for="assunto">Assunto *</label>
+            <select 
+              id="assunto" 
+              name="assunto"
+              [(ngModel)]="contato.assunto"
+              required
+              class="form-control"
+              [disabled]="enviando"
+              #assuntoInput="ngModel">
+              <option value="">Selecione um assunto</option>
+              <option value="duvida">Dúvida sobre produtos</option>
+              <option value="consultoria">Consultoria de estilo</option>
+              <option value="tamanhos">Informações sobre tamanhos</option>
+              <option value="entrega">Entrega e prazos</option>
+              <option value="troca">Trocas e devoluções</option>
+              <option value="elogio">Elogio</option>
+              <option value="outro">Outro</option>
+            </select>
+            <div *ngIf="assuntoInput.invalid && assuntoInput.touched" class="error-message">
+              Assunto é obrigatório
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem *</label>
+          <textarea 
+            id="mensagem" 
+            name="mensagem"
+            [(ngModel)]="contato.mensagem"
+            required
+            placeholder="Digite sua mensagem aqui..."
+            class="form-control"
+            rows="5"
+            [disabled]="enviando"
+            #mensagemInput="ngModel"></textarea>
+          <div *ngIf="mensagemInput.invalid && mensagemInput.touched" class="error-message">
+            Mensagem é obrigatória
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+            [disabled]="contatoForm.invalid || enviando">
+            <span *ngIf="enviando">Enviando...</span>
+            <span *ngIf="!enviando">Enviar Mensagem</span>
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-secondary"
+            [disabled]="enviando"
+            (click)="limparFormulario()">
+            Limpar
+          </button>
+        </div>
+      </form>
+
+      <!-- Mensagem após envio -->
+      <div *ngIf="formularioEnviado" class="success-message">
+        <h4>✅ Mensagem Enviada!</h4>
+        <p>Obrigado pelo contato. Responderemos em breve!</p>
+      </div>
+    </div>
+  </div>
+</div>

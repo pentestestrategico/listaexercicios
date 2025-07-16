@@ -1,19 +1,46 @@
-# 🚀 Projeto Angular - Sistema de Autenticação e Rotas Protegidas
+# 🚀 Loja Estilo Feminino - Sistema de E-commerce com Angular
 
-Este projeto é um exercício prático de **Angular 19** que implementa um sistema completo de navegação com autenticação, controle de acesso e gerenciamento de estado. O objetivo é demonstrar conceitos fundamentais do desenvolvimento web moderno usando Angular.
+Este projeto é uma aplicação completa de **Angular 19** para uma loja de roupas femininas que implementa um sistema de e-commerce com autenticação, catálogo de produtos e área administrativa. O objetivo é demonstrar conceitos fundamentais do desenvolvimento web moderno usando Angular.
 
-## 📋 Sobre o Exercício
+## 🎨 Screenshots das Páginas
 
-O sistema simula uma aplicação web com:
-- **Páginas públicas** (Home, Sobre, Serviços, Contato)
+### 🔐 Página de Login
+![Login](docs/screenshots/login.png)
+*Página inicial com autenticação obrigatória para acesso ao sistema*
+
+### 🏠 Página Home
+![Home](docs/screenshots/home.png)
+*Página principal com catálogo de produtos em layout responsivo de 3 colunas*
+
+### ℹ️ Página Sobre
+![Sobre](docs/screenshots/sobre.png)
+*Página institucional com carrossel automático e informações sobre a loja*
+
+### �️ Página Serviços
+![Serviços](docs/screenshots/servicos.png)
+*Página com informações sobre os serviços oferecidos pela loja*
+
+### 📞 Página Contato
+![Contato](docs/screenshots/contato.png)
+*Formulário de contato completo com validação e design responsivo*
+
+### 🎛️ Painel de Controle
+![Painel](docs/screenshots/painel-controle.png)
+*Área administrativa restrita com dashboard e estatísticas*
+
+## 📋 Sobre o Projeto
+
+O sistema simula uma **loja de roupas femininas** com:
+- **Catálogo de produtos** (vestidos, blusas, saias, jeans, blazers)
 - **Sistema de login** com validação de credenciais
-- **Área restrita** (Painel de Controle) protegida por guard
-- **Dashboard interativo** com estatísticas e funcionalidades
+- **Área administrativa** (Painel de Controle) protegida por guard
+- **Formulário de contato** com validação completa
+- **Design responsivo** com layout em 3 colunas
 - **Navegação dinâmica** e feedback visual em tempo real
 
 ### 🔐 Credenciais de Acesso
-- **Usuário:** `adm`
-- **Senha:** `123`
+- **Usuário:** `admin`
+- **Senha:** `admin`
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -31,19 +58,19 @@ O sistema simula uma aplicação web com:
 ```
 src/app/
 ├── header/                 # Componente de navegação principal
-├── home/                   # Página inicial com produtos
+├── home/                   # Página inicial com catálogo de produtos
 ├── pages/
-│   ├── sobre/             # Página sobre a empresa
-│   ├── servico/           # Página de serviços
-│   ├── contato/           # Página de contato
+│   ├── sobre/             # Página sobre a loja (com carrossel)
+│   ├── servico/           # Página de serviços da loja
+│   ├── contato/           # Formulário de contato completo
 │   ├── painel-component/  # Formulário de login
-│   └── painel-controle/   # Dashboard (área restrita)
+│   └── painel-controle/   # Dashboard administrativo (área restrita)
 ├── service/
 │   ├── auth.service.ts    # Serviço de autenticação
-│   └── produtos-service.ts # Serviço de produtos
+│   └── produtos-service.ts # Serviço de produtos de moda
 ├── guards/
 │   └── auth.guard.ts      # Guard de proteção de rotas
-└── app.routes.ts          # Configuração das rotas
+└── app.routes.ts          # Configuração das rotas protegidas
 ```
 
 ## ⚡ Funcionalidades Implementadas
@@ -59,17 +86,30 @@ src/app/
 - Redirecionamento automático para login
 - Verificação de autenticação em tempo real
 
-### 📊 Dashboard Interativo
-- Estatísticas em tempo real
-- Carregamento dinâmico de dados
-- Atualização de informações
-- Interface responsiva e moderna
+### �️ Catálogo de Produtos
+- Cards responsivos organizados em 3 colunas
+- Produtos de moda feminina (vestidos, blusas, saias, etc.)
+- Layout adaptativo para mobile e desktop
+- Design moderno com gradientes e hover effects
+
+### 📝 Formulário de Contato
+- Validação completa de campos
+- Design responsivo e moderno
+- Feedback visual para o usuário
+- Campos: nome, email, telefone, assunto e mensagem
 
 ### 🎨 Design e UX
 - Layout responsivo (mobile-first)
 - Animações e transições suaves
 - Feedback visual consistente
 - Gradientes e efeitos modernos
+- Footer otimizado e compacto
+
+### 🖼️ Carrossel de Imagens
+- Carrossel automático na página Sobre
+- Transições suaves entre imagens
+- Controle automático com timer
+- Design elegante e moderno
 
 ## 🚀 Como Executar
 
@@ -100,20 +140,41 @@ ng serve
 http://localhost:4200
 ```
 
+## 📸 Como Adicionar Screenshots
+
+Para atualizar os screenshots das páginas:
+
+1. **Acesse a aplicação em execução**
+2. **Navegue pelas páginas e tire prints**
+3. **Salve as imagens na pasta:** `docs/screenshots/`
+4. **Nomeie os arquivos como:**
+   - `login.png` - Página de login
+   - `home.png` - Página inicial
+   - `sobre.png` - Página sobre
+   - `servicos.png` - Página de serviços
+   - `contato.png` - Página de contato
+   - `painel-controle.png` - Dashboard administrativo
+
 ## 🧭 Como Usar
 
 1. **Navegação Pública:**
-   - Acesse Home, Sobre, Serviços e Contato livremente
-   - Visualize produtos na página inicial
+   - Faça login primeiro com: `admin` / `admin`
+   - Acesse Home, Sobre, Serviços e Contato
+   - Visualize o catálogo de roupas femininas
 
-2. **Acesso à Área Restrita:**
-   - Clique em "Login" no menu
-   - Use as credenciais: `adm` / `123`
-   - Será redirecionado para o Painel de Controle
+2. **Catálogo de Produtos:**
+   - Visualize produtos em layout de 3 colunas
+   - Design responsivo para mobile
+   - Hover effects nos cards
 
-3. **Dashboard:**
+3. **Formulário de Contato:**
+   - Preencha todos os campos obrigatórios
+   - Validação em tempo real
+   - Feedback visual de erros
+
+4. **Dashboard:**
+   - Acesse o Painel de Controle
    - Visualize estatísticas do sistema
-   - Atualize dados em tempo real
    - Faça logout quando necessário
 
 ## 🔧 Comandos Úteis
@@ -149,13 +210,15 @@ ng generate service nome-do-servico
 ## 🎯 Objetivos de Aprendizado
 
 Este exercício demonstra:
-- Estruturação de projetos Angular
-- Implementação de autenticação básica
+- Estruturação de projetos Angular para e-commerce
+- Implementação de autenticação com guards
 - Uso de guards para proteção de rotas
-- Criação de interfaces responsivas
+- Criação de interfaces responsivas modernas
 - Gerenciamento de estado com serviços
+- Formulários com validação completa
+- Layout responsivo com CSS Grid
 - Boas práticas de desenvolvimento Angular
 
 ---
 
-**Desenvolvido com Angular 19** | **Exercício Prático** | **Dezembro 2024**
+**Desenvolvido com Angular 19** | **Loja Estilo Feminino** | **Julho 2025**

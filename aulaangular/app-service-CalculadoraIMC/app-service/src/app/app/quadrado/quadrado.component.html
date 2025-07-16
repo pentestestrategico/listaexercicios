@@ -1,0 +1,16 @@
+<div class="box mathematical-bg">
+    <h1 class="calculator-title">Calculadora Quadrado</h1>
+    
+    <div class="form-group">
+        <label class="form-label">Digite um número:</label>
+        <input type="number" class="form-input" [(ngModel)]="numero" placeholder="Ex: 8" />
+    </div>
+
+    <button class="calculate-button" (click)="calcular()">Calcular Quadrado</button>
+
+    <div class="result-container" *ngIf="resultado">
+        <p class="result-label">Resultado:</p>
+        <p class="result-value">{{ resultado }}</p>
+        <p class="result-formula">{{ numero }} × {{ numero }} = {{ resultado }}</p>
+    </div>
+</div>

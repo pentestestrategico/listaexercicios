@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-icon">🔐</div>
+    <h2>Login</h2>
+    <h3>Usuario: admin senha: 123</h3>
+    
+    <div class="input-group">
+      <input 
+        type="text" 
+        [(ngModel)]="usuario" 
+        placeholder="Usuário"
+        required
+      />
+    </div>
+    
+    <div class="input-group">
+      <input 
+        type="password" 
+        [(ngModel)]="senha" 
+        placeholder="Senha"
+        required
+      />
+    </div>
+    
+    <button 
+      class="login-button"
+      (click)="entrar()"
+    >
+      Entrar
+    </button>
+    
+    <div *ngIf="erro" class="error-message">
+      Credenciais inválidas. Tente novamente.
+    </div>
+  </div>
+</div>

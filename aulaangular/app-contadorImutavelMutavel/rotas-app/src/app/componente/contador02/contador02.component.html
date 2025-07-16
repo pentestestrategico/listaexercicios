@@ -1,0 +1,24 @@
+<div class="contador-imutavel-mutavel">
+    <div class="contador-card fade-in-up">
+        <div class="conceito-badge">Imutável & Mutável</div>
+        
+        <h1 class="titulo-principal">Contador Imutável e Mutável</h1>
+        <p class="subtitulo">Demonstração das duas abordagens de manipulação de estado</p>
+        
+        <div class="valor-container">
+            <div class="valor-label">Valor:</div>
+            <div class="valor-display" [class.incrementing]="isIncrementing" [class.decrementing]="isDecrementing">
+                {{contador}}
+            </div>
+        </div>
+        
+        <div class="botoes-container">
+            <button class="btn-imutavel-mutavel btn-incrementar" (click)="incrementar()">
+                📈 Incrementar
+            </button>
+            <button class="btn-imutavel-mutavel btn-decrementar" (click)="decrementar()">
+                📉 Decrementar
+            </button>
+        </div>
+    </div>
+</div>

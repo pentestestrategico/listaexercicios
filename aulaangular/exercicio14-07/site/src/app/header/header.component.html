@@ -1,8 +1,16 @@
 <nav class="navbar">
-    <a routerLink="/">Home</a>
-    <a routerLink="/sobre">Sobre</a>
-    <a routerLink="/servico">Serviços</a>
-    <a routerLink="/contato">Contato</a>
-    <a routerLink="/painel">Login</a>
-    <a routerLink="/painel-controle">Painel Admin</a>
+    <!-- Navegação disponível apenas para usuários logados -->
+    <div *ngIf="authService.isAuthenticated()">
+        <a routerLink="/home">Home</a>
+        <a routerLink="/sobre">Sobre</a>
+        <a routerLink="/servico">Serviços</a>
+        <a routerLink="/contato">Contato</a>
+        <a routerLink="/painel-controle">Painel Admin</a>
+        <button (click)="logout()" class="logout-btn">Logout</button>
+    </div>
+    
+    <!-- Mensagem quando não está logado -->
+    <div *ngIf="!authService.isAuthenticated()">
+        <span>Faça login para acessar nossa coleção exclusiva</span>
+    </div>
 </nav>

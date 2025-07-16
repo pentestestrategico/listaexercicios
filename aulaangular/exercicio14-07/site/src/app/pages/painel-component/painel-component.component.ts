@@ -53,8 +53,8 @@ export class PainelComponentComponent {
       const loginSucesso = this.authService.login(this.login, this.senha);
       
       if (loginSucesso) {
-        // Login bem-sucedido - redireciona para a área restrita
-        this.router.navigate(['/painel-controle']);
+        // Login bem-sucedido - redireciona para a página home
+        this.router.navigate(['/home']);
       } else {
         // Login falhou - exibe mensagem de erro
         this.mensagemErro = 'Credenciais inválidas. Use login: "adm" e senha: "123".';

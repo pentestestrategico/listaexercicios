@@ -1,10 +1,37 @@
-<section class="produtos-conteiner">
-  <h2>Produtos em Destaque</h2>
-  <div class="card-grid">
-    <div class="product-card" *ngFor="let produto of produtos">
-      <img [src]="produto.foto" [alt]="produto.rotulo" />
-      <h3>{{ produto.rotulo }}</h3>
-      <p>{{ produto.detalhe }}</p>
+<div class="home-container">
+  <!-- Seção Hero -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Bem-vinda à Loja Estilo Feminino</h1>
+      <p>Desperte sua feminilidade com peças únicas e tendências da moda que valorizam sua beleza natural</p>
+      <div class="hero-buttons">
+        <a href="/contato" class="btn btn-primary">Fale Conosco</a>
+        <a href="/sobre" class="btn btn-secondary">Nossa História</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Seção de produtos -->
+  <section class="produtos-conteiner">
+    <h2>Coleção em Destaque</h2>
+    <p class="produtos-subtitle">Descubra as peças mais desejadas da nossa nova coleção, pensadas especialmente para você</p>
+    
+    <div class="card-grid">
+      <div class="product-card" *ngFor="let produto of produtos">
+        <div class="card-image">
+          <img [src]="produto.foto" [alt]="produto.rotulo" />
+          <div class="card-overlay">
+            <button class="btn-ver-mais">Ver Mais</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>{{ produto.rotulo }}</h3>
+          <p>{{ produto.detalhe }}</p>
+          <div class="card-footer">
+            <span class="produto-id">REF: {{ produto.id.toString().padStart(3, '0') }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
