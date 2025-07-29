@@ -1,0 +1,9 @@
+<h1>Lista de Produtos</h1>
+<button (click)="novo()">Novo produto</button>
+
+<ul>
+    <li *ngFor="let produto of produtos">
+       {{ produto.nome }}
+    
+    </li>
+</ul>
