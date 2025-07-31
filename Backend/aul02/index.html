@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Clientes</h1>
+        
+        <button onclick="carregarClientes()">Carregar Clientes</button>
+        
+        <div id="mensagem"></div>
+        
+        <table id="tabelaClientes" style="display: none;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabela">
+            </tbody>
+        </table>
+        
+        <!-- Modal de edição (inicialmente oculto) -->
+        <div id="modalEdicao" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Editar Cliente</h3>
+                    <span class="close" onclick="cancelarEdicao()">&times;</span>
+                </div>
+                <form id="formEditar">
+                    <div class="modal-body">
+                        <div>
+                            <label for="nomeEditar">Nome:</label>
+                            <input type="text" id="nomeEditar" required>
+                        </div>
+                        <div>
+                            <label for="cpfEditar">CPF:</label>
+                            <input type="text" id="cpfEditar" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn-salvar">Salvar</button>
+                        <button type="button" onclick="cancelarEdicao()" class="btn-cancelar">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para carregar clientes do banco de dados
+        async function carregarClientes() {
+            const mensagem = document.getElementById('mensagem');
+            const tabela = document.getElementById('tabelaClientes');
+            const corpoTabela = document.getElementById('corpoTabela');
+            
+            // Mostrar mensagem de carregamento
+            mensagem.innerHTML = '<div class="loading">Carregando clientes...</div>';
+            tabela.style.display = 'none';
+            
+            try {
+                // Fazer a requisição para o servidor
+                const response = await fetch('http://localhost:3006/clientes');
+                
+                // Verificar se a resposta foi bem-sucedida
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                
+                // Converter a resposta para JSON
+                const clientes = await response.json();
+                
+                // Limpar mensagem de carregamento
+                mensagem.innerHTML = '';
+                
+                // Limpar corpo da tabela
+                corpoTabela.innerHTML = '';
+                
+                // Verificar se existem clientes
+                if (clientes.length === 0) {
+                    mensagem.innerHTML = '<p>Nenhum cliente encontrado.</p>';
+                    return;
+                }
+                
+                // Preencher a tabela com os dados
+                clientes.forEach(cliente => {
+                    const linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td>${cliente.id}</td>
+                        <td>${cliente.nome}</td>
+                        <td>${cliente.cpf}</td>
+                        <td>
+                            <button onclick="editarCliente(${cliente.id}, '${cliente.nome}', '${cliente.cpf}')" class="btn-editar">Editar</button>
+                            <button onclick="excluirCliente(${cliente.id})" class="btn-excluir">Excluir</button>
+                        </td>
+                    `;
+                    corpoTabela.appendChild(linha);
+                });
+                
+                // Mostrar a tabela
+                tabela.style.display = 'table';
+                
+            } catch (error) {
+                console.error('Erro ao carregar clientes:', error);
+                mensagem.innerHTML = `<div class="error">Erro ao carregar clientes: ${error.message}<br>Verifique se o servidor está rodando em http://localhost:3006</div>`;
+            }
+        }
+        
+        // Carregar clientes automaticamente quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            carregarClientes();
+        });
+        
+        // Variável para armazenar o ID do cliente sendo editado
+        let clienteEditandoId = null;
+        
+        // Função para excluir cliente
+        async function excluirCliente(id) {
+            if (!confirm('Tem certeza que deseja excluir este cliente?')) {
+                return;
+            }
+            
+            const mensagem = document.getElementById('mensagem');
+            mensagem.innerHTML = '<div class="loading">Excluindo cliente...</div>';
+            
+            try {
+                const response = await fetch(`http://localhost:3006/clientes/${id}`, {
+                    method: 'DELETE'
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                
+                mensagem.innerHTML = '<div class="success">Cliente excluído com sucesso!</div>';
+                
+                // Recarregar a lista de clientes
+                setTimeout(() => {
+                    carregarClientes();
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Erro ao excluir cliente:', error);
+                mensagem.innerHTML = `<div class="error">Erro ao excluir cliente: ${error.message}</div>`;
+            }
+        }
+        
+        // Função para abrir o modal de edição
+        function editarCliente(id, nome, cpf) {
+            clienteEditandoId = id;
+            
+            // Preencher o formulário com os dados atuais
+            document.getElementById('nomeEditar').value = nome;
+            document.getElementById('cpfEditar').value = cpf;
+            
+            // Mostrar o modal
+            document.getElementById('modalEdicao').style.display = 'block';
+        }
+        
+        // Função para cancelar a edição e fechar o modal
+        function cancelarEdicao() {
+            document.getElementById('modalEdicao').style.display = 'none';
+            document.getElementById('formEditar').reset();
+            clienteEditandoId = null;
+        }
+        
+        // Fechar modal quando clicar fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalEdicao');
+            if (event.target === modal) {
+                cancelarEdicao();
+            }
+        }
+        
+        // Evento de submit do formulário de edição
+        document.getElementById('formEditar').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!clienteEditandoId) {
+                return;
+            }
+            
+            const nome = document.getElementById('nomeEditar').value;
+            const cpf = document.getElementById('cpfEditar').value;
+            const mensagem = document.getElementById('mensagem');
+            
+            mensagem.innerHTML = '<div class="loading">Atualizando cliente...</div>';
+            
+            try {
+                const response = await fetch(`http://localhost:3006/clientes/${clienteEditandoId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nome, cpf })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                
+                mensagem.innerHTML = '<div class="success">Cliente atualizado com sucesso!</div>';
+                
+                // Ocultar formulário e recarregar lista
+                cancelarEdicao();
+                setTimeout(() => {
+                    carregarClientes();
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Erro ao atualizar cliente:', error);
+                mensagem.innerHTML = `<div class="error">Erro ao atualizar cliente: ${error.message}</div>`;
+            }
+        });
+    </script>
+</body>
+</html>
